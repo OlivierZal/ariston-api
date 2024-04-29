@@ -20,18 +20,10 @@ import {
   type ViewModel,
   WheType,
 } from './types'
-import APICallContextData from './lib/APICallContextData'
-import APICallRequestData from './lib/APICallRequestData'
-import APICallResponseData from './lib/APICallResponseData'
 import AristonAPI from './lib/AristonAPI'
-import createAPICallErrorData from './lib/APICallErrorData'
 
 export {
   AristonAPI as default,
-  APICallContextData,
-  APICallRequestData,
-  APICallResponseData,
-  createAPICallErrorData,
   WheType,
   Mode,
   OperationMode,
