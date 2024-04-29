@@ -9,7 +9,7 @@ import type {
   PostData,
   PostSettings,
   ReportData,
-} from '../types'
+} from '..'
 import axios, {
   type AxiosError,
   type AxiosInstance,
@@ -19,21 +19,21 @@ import axios, {
 import APICallRequestData from './APICallRequestData'
 import APICallResponseData from './APICallResponseData'
 import { CookieJar } from 'tough-cookie'
-import createAPICallErrorData from './APICallErrorData'
+import createAPICallErrorData from './createAPICallErrorData'
 import { wrapper } from 'axios-cookiejar-support'
 
-interface APISettings {
+export interface APISettings {
   readonly expires?: string | null
   readonly password?: string | null
   readonly username?: string | null
 }
 
-interface Logger {
+export interface Logger {
   readonly error: Console['error']
   readonly log: Console['log']
 }
 
-interface SettingManager {
+export interface SettingManager {
   get: <K extends keyof APISettings>(
     key: K,
   ) => APISettings[K] | null | undefined
@@ -67,7 +67,7 @@ export default class AristonAPI {
   }
 
   public async applyLogin(data?: LoginCredentials): Promise<boolean> {
-    const { password, username } = data ?? {
+    const { username, password } = data ?? {
       password: this.#settingManager.get('password') ?? '',
       username: this.#settingManager.get('username') ?? '',
     }
