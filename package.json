@@ -1,7 +1,7 @@
 {
   "name": "ariston-api",
   "version": "1.0.0",
-  "description": "Ariston API package for NodeJS",
+  "description": "Ariston API for NodeJS",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "repository": {
