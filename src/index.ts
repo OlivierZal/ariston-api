@@ -1,4 +1,9 @@
 import 'source-map-support/register'
+import AristonAPI, {
+  type APISettings,
+  type Logger,
+  type SettingManager,
+} from './lib/AristonAPI'
 import {
   type BaseData,
   type BasePostSettings,
@@ -20,27 +25,29 @@ import {
   type ViewModel,
   WheType,
 } from './types'
-import AristonAPI from './lib/AristonAPI'
 
 export {
   AristonAPI as default,
-  WheType,
   Mode,
   OperationMode,
   Switch,
-  type LoginCredentials,
-  type LoginPostData,
-  type LoginData,
-  type Plant,
+  WheType,
+  type APISettings,
   type BaseData,
-  type PostPlantData,
-  type ViewModel,
-  type PostData,
-  type GetData,
   type BasePostSettings,
   type BasePostSettingsWithOld,
-  type PostSettings,
+  type GetData,
   type GetSettings,
   type HistogramData,
+  type Logger,
+  type LoginCredentials,
+  type LoginData,
+  type LoginPostData,
+  type Plant,
+  type PostPlantData,
+  type PostData,
+  type PostSettings,
   type ReportData,
+  type SettingManager,
+  type ViewModel,
 }

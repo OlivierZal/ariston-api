@@ -22,18 +22,18 @@ import { CookieJar } from 'tough-cookie'
 import createAPICallErrorData from './createAPICallErrorData'
 import { wrapper } from 'axios-cookiejar-support'
 
-interface APISettings {
+export interface APISettings {
   readonly expires?: string | null
   readonly password?: string | null
   readonly username?: string | null
 }
 
-interface Logger {
+export interface Logger {
   readonly error: Console['error']
   readonly log: Console['log']
 }
 
-interface SettingManager {
+export interface SettingManager {
   get: <K extends keyof APISettings>(
     key: K,
   ) => APISettings[K] | null | undefined
