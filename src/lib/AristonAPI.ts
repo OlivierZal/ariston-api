@@ -1,6 +1,7 @@
 import { DateTime, Duration } from 'luxon'
 import type {
   GetData,
+  GetDataWithSettings,
   GetSettings,
   LoginCredentials,
   LoginData,
@@ -43,7 +44,7 @@ export interface SettingManager {
 const DOMAIN = 'https://www.ariston-net.remotethermo.com'
 const LOGIN_URL = '/R2/Account/Login'
 
-export default class AristonAPI {
+export default class {
   #retry = true
 
   #retryTimeout!: NodeJS.Timeout
@@ -85,6 +86,15 @@ export default class AristonAPI {
     return false
   }
 
+  public async getDataWithSettings(
+    id: string,
+  ): Promise<{ data: GetDataWithSettings }> {
+    return this.#api.get<GetDataWithSettings>(
+      `/R2/PlantHomeSlp/GetData/${id}`,
+      { params: { fetchSettings: 'true', fetchTimeProg: 'false' } },
+    )
+  }
+
   public async login(postData: LoginPostData): Promise<{ data: LoginData }> {
     const response = await this.#api.post<LoginData>(LOGIN_URL, postData)
     if (response.data.ok) {
@@ -92,20 +102,6 @@ export default class AristonAPI {
       this.#settingManager.set('password', postData.password)
     }
     return response
-  }
-
-  public async plantData(
-    id: string,
-    postData?: PostData,
-  ): Promise<{ data: GetData }> {
-    return this.#api<GetData>({
-      method: postData ? 'POST' : 'GET',
-      url: `/R2/PlantHomeSlp/${postData ? 'SetData' : 'GetData'}/${id}`,
-      ...(postData ? { data: postData } : {}),
-      ...(postData ?
-        {}
-      : { params: { fetchSettings: 'false', fetchTimeProg: 'false' } }),
-    })
   }
 
   public async plantMetering(id: string): Promise<{ data: ReportData }> {
@@ -124,6 +120,13 @@ export default class AristonAPI {
 
   public async plants(): Promise<{ data: Plant[] }> {
     return this.#api.get<Plant[]>('/api/v2/velis/plants')
+  }
+
+  public async setData(
+    id: string,
+    postData: PostData,
+  ): Promise<{ data: GetData }> {
+    return this.#api.post<GetData>(`/R2/PlantHomeSlp/SetData/${id}`, postData)
   }
 
   async #handleError(error: AxiosError): Promise<AxiosError> {
@@ -158,8 +161,10 @@ export default class AristonAPI {
   async #handleResponse(response: AxiosResponse): Promise<AxiosResponse> {
     this.#logger.log(String(new APICallResponseData(response)))
     if (
-      // @ts-expect-error: `axios` is partially typed
-      response.headers.hasContentType('application/json') !== true &&
+      typeof response.headers !== 'undefined' &&
+      !(response.headers.hasContentType as (value: unknown) => boolean)(
+        'application/json',
+      ) &&
       this.#retry &&
       response.config.url !== LOGIN_URL
     ) {

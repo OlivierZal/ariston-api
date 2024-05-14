@@ -1,22 +1,22 @@
 // @ts-check
-const eslint = require('@eslint/js')
-const globals = require('globals')
-const importPlugin = require('eslint-plugin-import')
-const jsdoc = require('eslint-plugin-jsdoc')
-const prettier = require('eslint-config-prettier')
-const stylistic = require('@stylistic/eslint-plugin')
-const tsEslint = require('typescript-eslint')
+import eslint from '@eslint/js'
+import importPlugin from 'eslint-plugin-import'
+import jsdoc from 'eslint-plugin-jsdoc'
+import prettier from 'eslint-config-prettier'
+import stylistic from '@stylistic/eslint-plugin'
+import tsEslint from 'typescript-eslint'
 
-module.exports = tsEslint.config(
+export default tsEslint.config(
   {
     ignores: ['dist/'],
   },
   {
     extends: [
-      eslint.configs.recommended,
-      ...tsEslint.configs.strictTypeChecked,
-      ...tsEslint.configs.stylisticTypeChecked,
+      eslint.configs.all,
+      ...tsEslint.configs.all,
+      importPlugin.configs.typescript,
       jsdoc.configs['flat/recommended-typescript-error'],
+      prettier,
     ],
     languageOptions: {
       parserOptions: {
@@ -174,18 +174,6 @@ module.exports = tsEslint.config(
         {
           filter: {
             match: true,
-            regex: '^[a-z]+(?:_[a-z]+)*(\\.[a-z]+(?:_[a-z]+)*)?$',
-          },
-          format: null,
-          selector: [
-            'objectLiteralMethod',
-            'objectLiteralProperty',
-            'typeProperty',
-          ],
-        },
-        {
-          filter: {
-            match: true,
             regex: '^Slp',
           },
           format: ['PascalCase'],
@@ -218,6 +206,7 @@ module.exports = tsEslint.config(
         },
         {
           format: ['camelCase'],
+          leadingUnderscore: 'allow',
           selector: 'default',
         },
       ],
@@ -236,40 +225,33 @@ module.exports = tsEslint.config(
       '@typescript-eslint/no-unused-vars': [
         'error',
         {
+          argsIgnorePattern: '^_',
           caughtErrorsIgnorePattern: '^_',
         },
       ],
-      'func-style': 'error',
+      '@typescript-eslint/prefer-readonly-parameter-types': 'off',
+      camelcase: 'off',
+      'import/no-duplicates': [
+        'error',
+        {
+          'prefer-inline': true,
+        },
+      ],
+      'max-lines': 'off',
+      'no-bitwise': 'off',
       'no-empty': [
         'error',
         {
           allowEmptyCatch: true,
         },
       ],
-      'no-inline-comments': 'error',
-      'no-underscore-dangle': [
-        'error',
-        {
-          allow: ['__'],
-        },
-      ],
+      'no-ternary': 'off',
+      'one-var': ['error', 'never'],
       'sort-keys': [
         'error',
         'asc',
         {
           natural: true,
-        },
-      ],
-    },
-  },
-  {
-    extends: [importPlugin.configs.typescript],
-    files: ['**/*.ts'],
-    rules: {
-      'import/no-duplicates': [
-        'error',
-        {
-          'prefer-inline': true,
         },
       ],
     },
@@ -283,14 +265,7 @@ module.exports = tsEslint.config(
     },
   },
   {
-    extends: [tsEslint.configs.disableTypeChecked],
-    files: ['**/*.js'],
-    languageOptions: {
-      globals: globals.node,
-    },
-    rules: {
-      '@typescript-eslint/no-var-requires': 'off',
-    },
+    files: ['**/*.mjs'],
+    ...tsEslint.configs.disableTypeChecked,
   },
-  prettier,
 )
