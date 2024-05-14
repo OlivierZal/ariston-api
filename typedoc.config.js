@@ -1,4 +1,6 @@
 // @ts-check
+'use strict'
+
 module.exports = {
   cleanOutputDir: false,
   entryPoints: ['src/index.ts'],
