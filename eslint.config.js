@@ -1,4 +1,6 @@
+'use strict'
 // @ts-check
+
 const eslint = require('@eslint/js')
 const globals = require('globals')
 const importPlugin = require('eslint-plugin-import')
@@ -13,9 +15,8 @@ module.exports = tsEslint.config(
   },
   {
     extends: [
-      eslint.configs.recommended,
-      ...tsEslint.configs.strictTypeChecked,
-      ...tsEslint.configs.stylisticTypeChecked,
+      eslint.configs.all,
+      ...tsEslint.configs.all,
       jsdoc.configs['flat/recommended-typescript-error'],
     ],
     languageOptions: {
@@ -174,18 +175,6 @@ module.exports = tsEslint.config(
         {
           filter: {
             match: true,
-            regex: '^[a-z]+(?:_[a-z]+)*(\\.[a-z]+(?:_[a-z]+)*)?$',
-          },
-          format: null,
-          selector: [
-            'objectLiteralMethod',
-            'objectLiteralProperty',
-            'typeProperty',
-          ],
-        },
-        {
-          filter: {
-            match: true,
             regex: '^Slp',
           },
           format: ['PascalCase'],
@@ -239,20 +228,24 @@ module.exports = tsEslint.config(
           caughtErrorsIgnorePattern: '^_',
         },
       ],
-      'func-style': 'error',
+      '@typescript-eslint/prefer-readonly-parameter-types': 'off',
+      camelcase: 'off',
+      'max-lines': 'off',
+      'no-bitwise': 'off',
       'no-empty': [
         'error',
         {
           allowEmptyCatch: true,
         },
       ],
-      'no-inline-comments': 'error',
+      'no-ternary': 'off',
       'no-underscore-dangle': [
         'error',
         {
           allow: ['__'],
         },
       ],
+      'one-var': ['error', 'never'],
       'sort-keys': [
         'error',
         'asc',
@@ -287,8 +280,10 @@ module.exports = tsEslint.config(
     files: ['**/*.js'],
     languageOptions: {
       globals: globals.node,
+      sourceType: 'commonjs',
     },
     rules: {
+      '@typescript-eslint/no-require-imports': 'off',
       '@typescript-eslint/no-var-requires': 'off',
     },
   },
