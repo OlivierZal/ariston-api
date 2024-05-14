@@ -62,20 +62,31 @@ export interface PostData {
   readonly viewModel: ViewModel
 }
 
-export interface GetData {
-  readonly data: {
-    readonly plantSettings?: {
-      readonly antilegionellaOnOff: boolean
-      readonly maxSetpointTemp: { value: number }
-      readonly minSetpointTemp: { value: number }
-      readonly preHeatingOnOff: boolean
-    }
-    readonly plantData: Readonly<Required<PostPlantData>> & {
-      readonly procReqTemp: number
-      readonly waterTemp: number
-    }
-    readonly viewModel: Readonly<Required<ViewModel>>
+export interface PlantData {
+  readonly plantData: Readonly<Required<PostPlantData>> & {
+    readonly procReqTemp: number
+    readonly waterTemp: number
   }
+}
+
+export interface PlantSettings {
+  readonly antilegionellaOnOff: boolean
+  readonly maxSetpointTemp: { value: number }
+  readonly minSetpointTemp: { value: number }
+  readonly preHeatingOnOff: boolean
+}
+
+export interface BaseGetData {
+  readonly data: PlantData
+  readonly plantSettings: null | PlantSettings
+}
+
+export interface GetData extends BaseGetData {
+  readonly plantSettings: null
+}
+
+export interface GetDataWithSettings extends BaseGetData {
+  readonly plantSettings: PlantSettings
 }
 
 export interface BasePostSettings<T> {
