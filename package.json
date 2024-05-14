@@ -1,6 +1,6 @@
 {
   "name": "@olivierzal/ariston-api",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Ariston API for Node.js",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -41,21 +41,22 @@
     "prepare": "npm run build"
   },
   "devDependencies": {
+    "@eslint/js": "^9.3.0",
     "@stylistic/eslint-plugin": "^2.1.0",
     "@types/luxon": "^3.4.2",
     "@types/node": "^20.12.12",
     "@types/tough-cookie": "^4.0.5",
-    "eslint": "^9.2.0",
+    "eslint": "^9.3.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-import-resolver-typescript": "^3.6.1",
     "eslint-plugin-import": "^2.29.1",
-    "eslint-plugin-jsdoc": "^48.2.4",
+    "eslint-plugin-jsdoc": "^48.2.5",
     "globals": "^15.2.0",
     "prettier": "^3.2.5",
     "typedoc": "^0.25.13",
-    "typedoc-plugin-markdown": "^4.0.1",
-    "typescript": "^5.4.5",
-    "typescript-eslint": "^8.0.0-alpha.10"
+    "typedoc-plugin-markdown": "^4.0.2",
+    "typescript": "^5.5.0-dev.20240516",
+    "typescript-eslint": "^8.0.0-alpha.13"
   },
   "dependencies": {
     "axios": "^1.6.8",
