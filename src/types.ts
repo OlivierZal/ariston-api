@@ -76,18 +76,16 @@ export interface PlantSettings {
   readonly preHeatingOnOff: boolean
 }
 
-export interface BaseGetData {
-  readonly data: PlantData
-  readonly plantSettings: null | PlantSettings
+export interface BaseGetData<T extends null | PlantSettings> {
+  readonly data: {
+    readonly plantData: PlantData
+    readonly plantSettings: T
+  }
 }
 
-export interface GetData extends BaseGetData {
-  readonly plantSettings: null
-}
+export type GetData = BaseGetData<null>
 
-export interface GetDataWithSettings extends BaseGetData {
-  readonly plantSettings: PlantSettings
-}
+export type GetDataWithSettings = BaseGetData<PlantSettings>
 
 export interface BasePostSettings<T> {
   readonly new: T

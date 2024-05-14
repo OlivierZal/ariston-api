@@ -86,7 +86,9 @@ export default class AristonAPI {
     return false
   }
 
-  public async getData(id: string): Promise<{ data: GetDataWithSettings }> {
+  public async getDataWithSettings(
+    id: string,
+  ): Promise<{ data: GetDataWithSettings }> {
     return this.#api.get<GetDataWithSettings>(
       `/R2/PlantHomeSlp/GetData/${id}`,
       { params: { fetchSettings: 'true', fetchTimeProg: 'false' } },
