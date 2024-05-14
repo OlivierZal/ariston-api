@@ -62,11 +62,9 @@ export interface PostData {
   readonly viewModel: ViewModel
 }
 
-export interface PlantData {
-  readonly plantData: Readonly<Required<PostPlantData>> & {
-    readonly procReqTemp: number
-    readonly waterTemp: number
-  }
+export interface PlantData extends Readonly<Required<PostPlantData>> {
+  readonly procReqTemp: number
+  readonly waterTemp: number
 }
 
 export interface PlantSettings {
