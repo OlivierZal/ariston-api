@@ -71,7 +71,7 @@ new default(settingManager: SettingManager, logger: Logger): default
 
 ###### Source
 
-[src/lib/AristonAPI.ts:58](https://github.com/OlivierZal/ariston-api/blob/0981b7f8f5215374ac9641bce3c4b66c3ee59a47/src/lib/AristonAPI.ts#L58)
+[src/lib/AristonAPI.ts:58](https://github.com/OlivierZal/ariston-api/blob/8a26c009487e565b985509c354dbb56dad869087/src/lib/AristonAPI.ts#L58)
 
 #### Methods
 
@@ -93,7 +93,7 @@ applyLogin(data?: LoginCredentials): Promise<boolean>
 
 ###### Source
 
-[src/lib/AristonAPI.ts:70](https://github.com/OlivierZal/ariston-api/blob/0981b7f8f5215374ac9641bce3c4b66c3ee59a47/src/lib/AristonAPI.ts#L70)
+[src/lib/AristonAPI.ts:70](https://github.com/OlivierZal/ariston-api/blob/8a26c009487e565b985509c354dbb56dad869087/src/lib/AristonAPI.ts#L70)
 
 ##### getDataWithSettings()
 
@@ -121,7 +121,7 @@ getDataWithSettings(id: string): Promise<{
 
 ###### Source
 
-[src/lib/AristonAPI.ts:89](https://github.com/OlivierZal/ariston-api/blob/0981b7f8f5215374ac9641bce3c4b66c3ee59a47/src/lib/AristonAPI.ts#L89)
+[src/lib/AristonAPI.ts:89](https://github.com/OlivierZal/ariston-api/blob/8a26c009487e565b985509c354dbb56dad869087/src/lib/AristonAPI.ts#L89)
 
 ##### login()
 
@@ -149,7 +149,7 @@ login(postData: LoginPostData): Promise<{
 
 ###### Source
 
-[src/lib/AristonAPI.ts:98](https://github.com/OlivierZal/ariston-api/blob/0981b7f8f5215374ac9641bce3c4b66c3ee59a47/src/lib/AristonAPI.ts#L98)
+[src/lib/AristonAPI.ts:98](https://github.com/OlivierZal/ariston-api/blob/8a26c009487e565b985509c354dbb56dad869087/src/lib/AristonAPI.ts#L98)
 
 ##### plantMetering()
 
@@ -177,7 +177,7 @@ plantMetering(id: string): Promise<{
 
 ###### Source
 
-[src/lib/AristonAPI.ts:107](https://github.com/OlivierZal/ariston-api/blob/0981b7f8f5215374ac9641bce3c4b66c3ee59a47/src/lib/AristonAPI.ts#L107)
+[src/lib/AristonAPI.ts:107](https://github.com/OlivierZal/ariston-api/blob/8a26c009487e565b985509c354dbb56dad869087/src/lib/AristonAPI.ts#L107)
 
 ##### plantSettings()
 
@@ -206,7 +206,7 @@ plantSettings(id: string, settings: PostSettings): Promise<{
 
 ###### Source
 
-[src/lib/AristonAPI.ts:111](https://github.com/OlivierZal/ariston-api/blob/0981b7f8f5215374ac9641bce3c4b66c3ee59a47/src/lib/AristonAPI.ts#L111)
+[src/lib/AristonAPI.ts:111](https://github.com/OlivierZal/ariston-api/blob/8a26c009487e565b985509c354dbb56dad869087/src/lib/AristonAPI.ts#L111)
 
 ##### plants()
 
@@ -228,7 +228,7 @@ plants(): Promise<{
 
 ###### Source
 
-[src/lib/AristonAPI.ts:121](https://github.com/OlivierZal/ariston-api/blob/0981b7f8f5215374ac9641bce3c4b66c3ee59a47/src/lib/AristonAPI.ts#L121)
+[src/lib/AristonAPI.ts:121](https://github.com/OlivierZal/ariston-api/blob/8a26c009487e565b985509c354dbb56dad869087/src/lib/AristonAPI.ts#L121)
 
 ##### setData()
 
@@ -257,7 +257,7 @@ setData(id: string, postData: PostData): Promise<{
 
 ###### Source
 
-[src/lib/AristonAPI.ts:125](https://github.com/OlivierZal/ariston-api/blob/0981b7f8f5215374ac9641bce3c4b66c3ee59a47/src/lib/AristonAPI.ts#L125)
+[src/lib/AristonAPI.ts:125](https://github.com/OlivierZal/ariston-api/blob/8a26c009487e565b985509c354dbb56dad869087/src/lib/AristonAPI.ts#L125)
 
 ## Interfaces
 
@@ -298,7 +298,7 @@ setData(id: string, postData: PostData): Promise<{
 
 | Type parameter |
 | :------ |
-| `T` *extends* `null` \| [`PlantSettings`](README.md#plantsettings-1) |
+| `T` *extends* [`PlantSettings`](README.md#plantsettings-1) \| `null` |
 
 #### Properties
 
@@ -559,7 +559,7 @@ type GetData: BaseGetData<null>;
 
 #### Source
 
-[src/types.ts:84](https://github.com/OlivierZal/ariston-api/blob/0981b7f8f5215374ac9641bce3c4b66c3ee59a47/src/types.ts#L84)
+[src/types.ts:84](https://github.com/OlivierZal/ariston-api/blob/8a26c009487e565b985509c354dbb56dad869087/src/types.ts#L84)
 
 ***
 
@@ -571,4 +571,4 @@ type GetDataWithSettings: BaseGetData<PlantSettings>;
 
 #### Source
 
-[src/types.ts:86](https://github.com/OlivierZal/ariston-api/blob/0981b7f8f5215374ac9641bce3c4b66c3ee59a47/src/types.ts#L86)
+[src/types.ts:86](https://github.com/OlivierZal/ariston-api/blob/8a26c009487e565b985509c354dbb56dad869087/src/types.ts#L86)
