@@ -74,7 +74,7 @@ export interface PlantSettings {
   readonly preHeatingOnOff: boolean
 }
 
-export interface BaseGetData<T extends null | PlantSettings> {
+export interface BaseGetData<T extends PlantSettings | null> {
   readonly data: {
     readonly plantData: PlantData
     readonly plantSettings: T
