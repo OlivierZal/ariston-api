@@ -44,7 +44,7 @@ export interface SettingManager {
 const DOMAIN = 'https://www.ariston-net.remotethermo.com'
 const LOGIN_URL = '/R2/Account/Login'
 
-export default class AristonAPI {
+export default class {
   #retry = true
 
   #retryTimeout!: NodeJS.Timeout
