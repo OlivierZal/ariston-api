@@ -206,6 +206,7 @@ export default tsEslint.config(
         },
         {
           format: ['camelCase'],
+          leadingUnderscore: 'allow',
           selector: 'default',
         },
       ],
@@ -224,6 +225,7 @@ export default tsEslint.config(
       '@typescript-eslint/no-unused-vars': [
         'error',
         {
+          argsIgnorePattern: '^_',
           caughtErrorsIgnorePattern: '^_',
         },
       ],
@@ -244,12 +246,6 @@ export default tsEslint.config(
         },
       ],
       'no-ternary': 'off',
-      'no-underscore-dangle': [
-        'error',
-        {
-          allow: ['__'],
-        },
-      ],
       'one-var': ['error', 'never'],
       'sort-keys': [
         'error',
