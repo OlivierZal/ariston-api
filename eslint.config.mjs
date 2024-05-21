@@ -269,7 +269,7 @@ export default tsEslint.config(
     },
   },
   {
-    extends: [tsEslint.configs.disableTypeChecked],
     files: ['**/*.mjs'],
+    ...tsEslint.configs.disableTypeChecked,
   },
 )
