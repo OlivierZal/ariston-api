@@ -161,7 +161,6 @@ export default class {
   async #handleResponse(response: AxiosResponse): Promise<AxiosResponse> {
     this.#logger.log(String(new APICallResponseData(response)))
     if (
-      typeof response.headers !== 'undefined' &&
       !(response.headers.hasContentType as (value: unknown) => boolean)(
         'application/json',
       ) &&
