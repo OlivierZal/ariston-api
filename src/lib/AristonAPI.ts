@@ -162,7 +162,7 @@ export default class {
     this.#logger.log(String(new APICallResponseData(response)))
     if (
       // @ts-expect-error: `axios` is partially typed
-      response.headers.hasContentType('application/json') !== true &&
+      !(response.headers.hasContentType('application/json') as boolean) &&
       this.#retry &&
       response.config.url !== LOGIN_URL
     ) {
