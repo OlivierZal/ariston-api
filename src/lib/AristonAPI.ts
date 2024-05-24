@@ -1,12 +1,13 @@
 import { DateTime, Duration } from 'luxon'
 import type {
   GetData,
-  GetDataWithSettings,
   GetSettings,
   LoginCredentials,
   LoginData,
   LoginPostData,
   Plant,
+  PlantHeader,
+  PlantSettings,
   PostData,
   PostSettings,
   ReportData,
@@ -41,42 +42,85 @@ export interface SettingManager {
   set: <K extends keyof APISettings>(key: K, value: APISettings[K]) => void
 }
 
+const ACCEPT_LANGUAGE = 'Accept-Language'
 const DOMAIN = 'https://www.ariston-net.remotethermo.com'
 const LOGIN_URL = '/R2/Account/Login'
 
 export default class {
+  readonly #settingManager?: SettingManager
+
+  #expires = ''
+
+  #password = ''
+
   #retry = true
 
   #retryTimeout!: NodeJS.Timeout
+
+  #username = ''
 
   readonly #api: AxiosInstance
 
   readonly #logger: Logger
 
-  readonly #settingManager: SettingManager
-
-  public constructor(settingManager: SettingManager, logger: Logger = console) {
-    this.#settingManager = settingManager
+  public constructor(
+    config: {
+      language?: string
+      logger?: Logger
+      settingManager?: SettingManager
+    } = {},
+  ) {
+    const { language = 'en', logger = console, settingManager } = config
     this.#logger = logger
+    this.#settingManager = settingManager
     wrapper(axios)
     this.#api = axios.create({
       baseURL: DOMAIN,
+      headers: { [ACCEPT_LANGUAGE]: language },
       jar: new CookieJar(),
       withCredentials: true,
     })
     this.#setupAxiosInterceptors()
   }
 
+  private get expires(): string {
+    return this.#settingManager?.get('expires') ?? this.#expires
+  }
+
+  private set expires(value: string) {
+    this.#expires = value
+    this.#settingManager?.set('expires', this.#expires)
+  }
+
+  private get password(): string {
+    return this.#settingManager?.get('password') ?? this.#password
+  }
+
+  private set password(value: string) {
+    this.#password = value
+    this.#settingManager?.set('password', this.#password)
+  }
+
+  private get username(): string {
+    return this.#settingManager?.get('username') ?? this.#username
+  }
+
+  private set username(value: string) {
+    this.#username = value
+    this.#settingManager?.set('username', this.#username)
+  }
+
   public async applyLogin(data?: LoginCredentials): Promise<boolean> {
-    const { username, password } = data ?? {
-      password: this.#settingManager.get('password') ?? '',
-      username: this.#settingManager.get('username') ?? '',
-    }
+    const { username = this.username, password = this.password } = data ?? {}
     if (username && password) {
       try {
-        return (
+        const { message, ok: isOk } = (
           await this.login({ email: username, password, rememberMe: true })
-        ).data.ok
+        ).data
+        if (!isOk) {
+          throw new Error(message)
+        }
+        return true
       } catch (error) {
         if (typeof data !== 'undefined') {
           throw error
@@ -86,29 +130,47 @@ export default class {
     return false
   }
 
-  public async getDataWithSettings(
-    id: string,
-  ): Promise<{ data: GetDataWithSettings }> {
-    return this.#api.get<GetDataWithSettings>(
+  public async errors(id: string): Promise<{ data: PlantHeader }> {
+    return this.#api.get<PlantHeader>(`/R2/Plant/PlantHeader/${id}`)
+  }
+
+  public async getDataWithSettings(id: string): Promise<{
+    data: GetData<PlantSettings>
+  }> {
+    return this.#api.get<GetData<PlantSettings>>(
       `/R2/PlantHomeSlp/GetData/${id}`,
       { params: { fetchSettings: 'true', fetchTimeProg: 'false' } },
     )
   }
 
+  public async list(): Promise<{ data: Plant[] }> {
+    return this.#api.get<Plant[]>('/api/v2/velis/plants')
+  }
+
   public async login(postData: LoginPostData): Promise<{ data: LoginData }> {
     const response = await this.#api.post<LoginData>(LOGIN_URL, postData)
     if (response.data.ok) {
-      this.#settingManager.set('username', postData.email)
-      this.#settingManager.set('password', postData.password)
+      this.username = postData.email
+      this.password = postData.password
     }
     return response
   }
 
-  public async plantMetering(id: string): Promise<{ data: ReportData }> {
+  public async report(id: string): Promise<{ data: ReportData }> {
     return this.#api.post<ReportData>(`/R2/PlantMetering/GetData/${id}`)
   }
 
-  public async plantSettings(
+  public async setData(
+    id: string,
+    postData: PostData,
+  ): Promise<{ data: GetData<null> }> {
+    return this.#api.post<GetData<null>>(
+      `/R2/PlantHomeSlp/SetData/${id}`,
+      postData,
+    )
+  }
+
+  public async setSettings(
     id: string,
     settings: PostSettings,
   ): Promise<{ data: GetSettings }> {
@@ -116,17 +178,6 @@ export default class {
       `/api/v2/velis/slpPlantData/${id}/PlantSettings`,
       settings,
     )
-  }
-
-  public async plants(): Promise<{ data: Plant[] }> {
-    return this.#api.get<Plant[]>('/api/v2/velis/plants')
-  }
-
-  public async setData(
-    id: string,
-    postData: PostData,
-  ): Promise<{ data: GetData }> {
-    return this.#api.post<GetData>(`/R2/PlantHomeSlp/SetData/${id}`, postData)
   }
 
   async #handleError(error: AxiosError): Promise<AxiosError> {
@@ -149,7 +200,7 @@ export default class {
     config: InternalAxiosRequestConfig,
   ): Promise<InternalAxiosRequestConfig> {
     if (config.url !== LOGIN_URL) {
-      const expires = this.#settingManager.get('expires') ?? ''
+      const { expires } = this
       if (expires && DateTime.fromISO(expires) < DateTime.now()) {
         await this.applyLogin()
       }
@@ -198,8 +249,7 @@ export default class {
           (cookie) => cookie.key === '.AspNet.ApplicationCookie',
         )
         if (aspNetCookie) {
-          const expiresDate = new Date(String(aspNetCookie.expires))
-          this.#settingManager.set('expires', expiresDate.toISOString())
+          this.expires = new Date(String(aspNetCookie.expires)).toISOString()
         }
       })
     }
