@@ -62,11 +62,7 @@ export default class {
   readonly #logger: Logger
 
   public constructor(
-    config: {
-      logger?: Logger
-      settingManager?: SettingManager
-      shouldVerifySSL?: boolean
-    } = {},
+    config: { logger?: Logger; settingManager?: SettingManager } = {},
   ) {
     const { logger = console, settingManager } = config
     this.#logger = logger
