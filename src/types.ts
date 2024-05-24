@@ -20,6 +20,16 @@ export enum Switch {
   on = 1,
 }
 
+export interface Success {
+  readonly message: null
+  readonly ok: true
+}
+
+export interface Failure {
+  readonly message: string
+  readonly ok: false
+}
+
 export interface LoginCredentials {
   readonly password: string
   readonly username: string
@@ -31,9 +41,7 @@ export interface LoginPostData {
   readonly rememberMe: true
 }
 
-export interface LoginData {
-  readonly ok: boolean
-}
+export type LoginData = Failure | Success
 
 export interface Plant {
   readonly gw: string
@@ -41,19 +49,20 @@ export interface Plant {
   readonly wheType: WheType
 }
 
-export interface BaseData {
+export interface BasePlantData {
   boostOn?: boolean
   comfortTemp?: number
   holidayUntil?: string | null
+  hpState?: number
   on?: boolean
   opMode?: OperationMode
 }
 
-export interface PostPlantData extends BaseData {
+export interface PostPlantData extends BasePlantData {
   mode?: Mode
 }
 
-export interface ViewModel extends BaseData {
+export interface ViewModel extends BasePlantData {
   plantMode?: Mode
 }
 
@@ -63,7 +72,6 @@ export interface PostData {
 }
 
 export interface PlantData extends Readonly<Required<PostPlantData>> {
-  readonly procReqTemp: number
   readonly waterTemp: number
 }
 
@@ -74,16 +82,14 @@ export interface PlantSettings {
   readonly preHeatingOnOff: boolean
 }
 
-export interface BaseGetData<T extends PlantSettings | null> {
-  readonly data: {
-    readonly plantData: PlantData
-    readonly plantSettings: T
-  }
-}
-
-export type GetData = BaseGetData<null>
-
-export type GetDataWithSettings = BaseGetData<PlantSettings>
+export type GetData<T extends PlantSettings | null> =
+  | Failure
+  | (Success & {
+      readonly data: {
+        readonly plantData: PlantData
+        readonly plantSettings: T
+      }
+    })
 
 export interface BasePostSettings<T> {
   readonly new: T
@@ -102,6 +108,13 @@ export interface PostSettings {
 
 export interface GetSettings {
   readonly success: boolean
+}
+
+export interface PlantHeader {
+  readonly data: {
+    readonly errorText: string
+    readonly errorType: number
+  }
 }
 
 export interface HistogramData {

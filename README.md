@@ -55,15 +55,21 @@
 ##### new default()
 
 ```ts
-new default(settingManager: SettingManager, logger: Logger): default
+new default(config: {
+  language: string;
+  logger: Logger;
+  settingManager: SettingManager;
+ }): default
 ```
 
 ###### Parameters
 
-| Parameter | Type | Default value |
-| :------ | :------ | :------ |
-| `settingManager` | [`SettingManager`](README.md#settingmanager) | `undefined` |
-| `logger` | [`Logger`](README.md#logger) | `console` |
+| Parameter | Type |
+| :------ | :------ |
+| `config` | `object` |
+| `config.language`? | `string` |
+| `config.logger`? | [`Logger`](README.md#logger) |
+| `config.settingManager`? | [`SettingManager`](README.md#settingmanager) |
 
 ###### Returns
 
@@ -71,7 +77,7 @@ new default(settingManager: SettingManager, logger: Logger): default
 
 ###### Source
 
-[src/lib/AristonAPI.ts:58](https://github.com/OlivierZal/ariston-api/blob/4900234dde2a8c388a11ce3b0718250e32bc6f21/src/lib/AristonAPI.ts#L58)
+[src/lib/AristonAPI.ts:66](https://github.com/OlivierZal/ariston-api/blob/37e3e6a4469d9c5ec31433f792ee2722c48e67a1/src/lib/AristonAPI.ts#L66)
 
 #### Methods
 
@@ -93,13 +99,13 @@ applyLogin(data?: LoginCredentials): Promise<boolean>
 
 ###### Source
 
-[src/lib/AristonAPI.ts:70](https://github.com/OlivierZal/ariston-api/blob/4900234dde2a8c388a11ce3b0718250e32bc6f21/src/lib/AristonAPI.ts#L70)
+[src/lib/AristonAPI.ts:113](https://github.com/OlivierZal/ariston-api/blob/37e3e6a4469d9c5ec31433f792ee2722c48e67a1/src/lib/AristonAPI.ts#L113)
 
-##### getDataWithSettings()
+##### errors()
 
 ```ts
-getDataWithSettings(id: string): Promise<{
-  "data": GetDataWithSettings;
+errors(id: string): Promise<{
+  data: PlantHeader;
 }>
 ```
 
@@ -112,50 +118,22 @@ getDataWithSettings(id: string): Promise<{
 ###### Returns
 
 `Promise`\<\{
-  `"data"`: [`GetDataWithSettings`](README.md#getdatawithsettings-1);
+  `data`: [`PlantHeader`](README.md#plantheader);
  \}\>
 
 | Member | Type |
 | :------ | :------ |
-| `data` | [`GetDataWithSettings`](README.md#getdatawithsettings-1) |
+| `data` | [`PlantHeader`](README.md#plantheader) |
 
 ###### Source
 
-[src/lib/AristonAPI.ts:89](https://github.com/OlivierZal/ariston-api/blob/4900234dde2a8c388a11ce3b0718250e32bc6f21/src/lib/AristonAPI.ts#L89)
+[src/lib/AristonAPI.ts:133](https://github.com/OlivierZal/ariston-api/blob/37e3e6a4469d9c5ec31433f792ee2722c48e67a1/src/lib/AristonAPI.ts#L133)
 
-##### login()
-
-```ts
-login(postData: LoginPostData): Promise<{
-  "data": LoginData;
-}>
-```
-
-###### Parameters
-
-| Parameter | Type |
-| :------ | :------ |
-| `postData` | [`LoginPostData`](README.md#loginpostdata) |
-
-###### Returns
-
-`Promise`\<\{
-  `"data"`: [`LoginData`](README.md#logindata);
- \}\>
-
-| Member | Type |
-| :------ | :------ |
-| `data` | [`LoginData`](README.md#logindata) |
-
-###### Source
-
-[src/lib/AristonAPI.ts:98](https://github.com/OlivierZal/ariston-api/blob/4900234dde2a8c388a11ce3b0718250e32bc6f21/src/lib/AristonAPI.ts#L98)
-
-##### plantMetering()
+##### get()
 
 ```ts
-plantMetering(id: string): Promise<{
-  "data": ReportData;
+get(id: string): Promise<{
+  data: GetData<PlantSettings>;
 }>
 ```
 
@@ -168,58 +146,29 @@ plantMetering(id: string): Promise<{
 ###### Returns
 
 `Promise`\<\{
-  `"data"`: [`ReportData`](README.md#reportdata);
+  `data`: [`GetData`](README.md#getdatat)\<[`PlantSettings`](README.md#plantsettings)\>;
  \}\>
 
 | Member | Type |
 | :------ | :------ |
-| `data` | [`ReportData`](README.md#reportdata) |
+| `data` | [`GetData`](README.md#getdatat)\<[`PlantSettings`](README.md#plantsettings)\> |
 
 ###### Source
 
-[src/lib/AristonAPI.ts:107](https://github.com/OlivierZal/ariston-api/blob/4900234dde2a8c388a11ce3b0718250e32bc6f21/src/lib/AristonAPI.ts#L107)
+[src/lib/AristonAPI.ts:137](https://github.com/OlivierZal/ariston-api/blob/37e3e6a4469d9c5ec31433f792ee2722c48e67a1/src/lib/AristonAPI.ts#L137)
 
-##### plantSettings()
-
-```ts
-plantSettings(id: string, settings: PostSettings): Promise<{
-  "data": GetSettings;
-}>
-```
-
-###### Parameters
-
-| Parameter | Type |
-| :------ | :------ |
-| `id` | `string` |
-| `settings` | [`PostSettings`](README.md#postsettings) |
-
-###### Returns
-
-`Promise`\<\{
-  `"data"`: [`GetSettings`](README.md#getsettings);
- \}\>
-
-| Member | Type |
-| :------ | :------ |
-| `data` | [`GetSettings`](README.md#getsettings) |
-
-###### Source
-
-[src/lib/AristonAPI.ts:111](https://github.com/OlivierZal/ariston-api/blob/4900234dde2a8c388a11ce3b0718250e32bc6f21/src/lib/AristonAPI.ts#L111)
-
-##### plants()
+##### list()
 
 ```ts
-plants(): Promise<{
-  "data": Plant[];
+list(): Promise<{
+  data: Plant[];
 }>
 ```
 
 ###### Returns
 
 `Promise`\<\{
-  `"data"`: [`Plant`](README.md#plant)[];
+  `data`: [`Plant`](README.md#plant)[];
  \}\>
 
 | Member | Type |
@@ -228,13 +177,69 @@ plants(): Promise<{
 
 ###### Source
 
-[src/lib/AristonAPI.ts:121](https://github.com/OlivierZal/ariston-api/blob/4900234dde2a8c388a11ce3b0718250e32bc6f21/src/lib/AristonAPI.ts#L121)
+[src/lib/AristonAPI.ts:146](https://github.com/OlivierZal/ariston-api/blob/37e3e6a4469d9c5ec31433f792ee2722c48e67a1/src/lib/AristonAPI.ts#L146)
+
+##### login()
+
+```ts
+login(__namedParameters: LoginPostData): Promise<{
+  data: LoginData;
+}>
+```
+
+###### Parameters
+
+| Parameter | Type |
+| :------ | :------ |
+| `__namedParameters` | [`LoginPostData`](README.md#loginpostdata) |
+
+###### Returns
+
+`Promise`\<\{
+  `data`: [`LoginData`](README.md#logindata);
+ \}\>
+
+| Member | Type |
+| :------ | :------ |
+| `data` | [`LoginData`](README.md#logindata) |
+
+###### Source
+
+[src/lib/AristonAPI.ts:150](https://github.com/OlivierZal/ariston-api/blob/37e3e6a4469d9c5ec31433f792ee2722c48e67a1/src/lib/AristonAPI.ts#L150)
+
+##### report()
+
+```ts
+report(id: string): Promise<{
+  data: ReportData;
+}>
+```
+
+###### Parameters
+
+| Parameter | Type |
+| :------ | :------ |
+| `id` | `string` |
+
+###### Returns
+
+`Promise`\<\{
+  `data`: [`ReportData`](README.md#reportdata);
+ \}\>
+
+| Member | Type |
+| :------ | :------ |
+| `data` | [`ReportData`](README.md#reportdata) |
+
+###### Source
+
+[src/lib/AristonAPI.ts:167](https://github.com/OlivierZal/ariston-api/blob/37e3e6a4469d9c5ec31433f792ee2722c48e67a1/src/lib/AristonAPI.ts#L167)
 
 ##### setData()
 
 ```ts
 setData(id: string, postData: PostData): Promise<{
-  "data": GetData;
+  data: GetData<null>;
 }>
 ```
 
@@ -248,16 +253,45 @@ setData(id: string, postData: PostData): Promise<{
 ###### Returns
 
 `Promise`\<\{
-  `"data"`: [`GetData`](README.md#getdata);
+  `data`: [`GetData`](README.md#getdatat)\<`null`\>;
  \}\>
 
 | Member | Type |
 | :------ | :------ |
-| `data` | [`GetData`](README.md#getdata) |
+| `data` | [`GetData`](README.md#getdatat)\<`null`\> |
 
 ###### Source
 
-[src/lib/AristonAPI.ts:125](https://github.com/OlivierZal/ariston-api/blob/4900234dde2a8c388a11ce3b0718250e32bc6f21/src/lib/AristonAPI.ts#L125)
+[src/lib/AristonAPI.ts:171](https://github.com/OlivierZal/ariston-api/blob/37e3e6a4469d9c5ec31433f792ee2722c48e67a1/src/lib/AristonAPI.ts#L171)
+
+##### setSettings()
+
+```ts
+setSettings(id: string, settings: PostSettings): Promise<{
+  data: GetSettings;
+}>
+```
+
+###### Parameters
+
+| Parameter | Type |
+| :------ | :------ |
+| `id` | `string` |
+| `settings` | [`PostSettings`](README.md#postsettings) |
+
+###### Returns
+
+`Promise`\<\{
+  `data`: [`GetSettings`](README.md#getsettings);
+ \}\>
+
+| Member | Type |
+| :------ | :------ |
+| `data` | [`GetSettings`](README.md#getsettings) |
+
+###### Source
+
+[src/lib/AristonAPI.ts:181](https://github.com/OlivierZal/ariston-api/blob/37e3e6a4469d9c5ec31433f792ee2722c48e67a1/src/lib/AristonAPI.ts#L181)
 
 ## Interfaces
 
@@ -273,7 +307,7 @@ setData(id: string, postData: PostData): Promise<{
 
 ***
 
-### BaseData
+### BasePlantData
 
 #### Extended by
 
@@ -287,26 +321,9 @@ setData(id: string, postData: PostData): Promise<{
 | `boostOn?` | `boolean` |
 | `comfortTemp?` | `number` |
 | `holidayUntil?` | `null` \| `string` |
+| `hpState?` | `number` |
 | `on?` | `boolean` |
 | `opMode?` | [`OperationMode`](README.md#operationmode) |
-
-***
-
-### BaseGetData\<T\>
-
-#### Type parameters
-
-| Type parameter |
-| :------ |
-| `T` *extends* [`PlantSettings`](README.md#plantsettings-1) \| `null` |
-
-#### Properties
-
-| Property | Modifier | Type |
-| :------ | :------ | :------ |
-| `data` | `readonly` | \{ `"plantData"`: [`PlantData`](README.md#plantdata); `"plantSettings"`: `T`; \} |
-| `data.plantData` | `public` | [`PlantData`](README.md#plantdata) |
-| `data.plantSettings` | `public` | `T` |
 
 ***
 
@@ -351,6 +368,17 @@ setData(id: string, postData: PostData): Promise<{
 
 ***
 
+### Failure
+
+#### Properties
+
+| Property | Modifier | Type |
+| :------ | :------ | :------ |
+| `message` | `readonly` | `string` |
+| `ok` | `readonly` | `false` |
+
+***
+
 ### GetSettings
 
 #### Properties
@@ -367,7 +395,7 @@ setData(id: string, postData: PostData): Promise<{
 
 | Property | Modifier | Type |
 | :------ | :------ | :------ |
-| `items` | `readonly` | readonly \{ `"x"`: `string`; `"y"`: `number`; \}[] |
+| `items` | `readonly` | readonly \{ `x`: `string`; `y`: `number`; \}[] |
 | `period` | `readonly` | `string` |
 | `series` | `readonly` | `"DhwHp"` \| `"DhwResistor"` |
 | `tab` | `readonly` | `string` |
@@ -393,16 +421,6 @@ setData(id: string, postData: PostData): Promise<{
 | :------ | :------ | :------ |
 | `password` | `readonly` | `string` |
 | `username` | `readonly` | `string` |
-
-***
-
-### LoginData
-
-#### Properties
-
-| Property | Modifier | Type |
-| :------ | :------ | :------ |
-| `ok` | `readonly` | `boolean` |
 
 ***
 
@@ -443,11 +461,23 @@ setData(id: string, postData: PostData): Promise<{
 | `boostOn` | `readonly` | `boolean` | `Readonly.boostOn` |
 | `comfortTemp` | `readonly` | `number` | `Readonly.comfortTemp` |
 | `holidayUntil` | `readonly` | `null` \| `string` | `Readonly.holidayUntil` |
+| `hpState` | `readonly` | `number` | `Readonly.hpState` |
 | `mode` | `readonly` | [`Mode`](README.md#mode) | `Readonly.mode` |
 | `on` | `readonly` | `boolean` | `Readonly.on` |
 | `opMode` | `readonly` | [`OperationMode`](README.md#operationmode) | `Readonly.opMode` |
-| `procReqTemp` | `readonly` | `number` | - |
 | `waterTemp` | `readonly` | `number` | - |
+
+***
+
+### PlantHeader
+
+#### Properties
+
+| Property | Modifier | Type |
+| :------ | :------ | :------ |
+| `data` | `readonly` | \{ `errorText`: `string`; `errorType`: `number`; \} |
+| `data.errorText` | `public` | `string` |
+| `data.errorType` | `public` | `number` |
 
 ***
 
@@ -458,9 +488,9 @@ setData(id: string, postData: PostData): Promise<{
 | Property | Modifier | Type |
 | :------ | :------ | :------ |
 | `antilegionellaOnOff` | `readonly` | `boolean` |
-| `maxSetpointTemp` | `readonly` | \{ `"value"`: `number`; \} |
+| `maxSetpointTemp` | `readonly` | \{ `value`: `number`; \} |
 | `maxSetpointTemp.value` | `readonly` | `number` |
-| `minSetpointTemp` | `readonly` | \{ `"value"`: `number`; \} |
+| `minSetpointTemp` | `readonly` | \{ `value`: `number`; \} |
 | `minSetpointTemp.value` | `public` | `number` |
 | `preHeatingOnOff` | `public` | `boolean` |
 
@@ -481,18 +511,19 @@ setData(id: string, postData: PostData): Promise<{
 
 #### Extends
 
-- [`BaseData`](README.md#basedata)
+- [`BasePlantData`](README.md#baseplantdata)
 
 #### Properties
 
 | Property | Type | Inherited from |
 | :------ | :------ | :------ |
-| `boostOn?` | `boolean` | [`BaseData`](README.md#basedata).`boostOn` |
-| `comfortTemp?` | `number` | [`BaseData`](README.md#basedata).`comfortTemp` |
-| `holidayUntil?` | `null` \| `string` | [`BaseData`](README.md#basedata).`holidayUntil` |
+| `boostOn?` | `boolean` | [`BasePlantData`](README.md#baseplantdata).`boostOn` |
+| `comfortTemp?` | `number` | [`BasePlantData`](README.md#baseplantdata).`comfortTemp` |
+| `holidayUntil?` | `null` \| `string` | [`BasePlantData`](README.md#baseplantdata).`holidayUntil` |
+| `hpState?` | `number` | [`BasePlantData`](README.md#baseplantdata).`hpState` |
 | `mode?` | [`Mode`](README.md#mode) | - |
-| `on?` | `boolean` | [`BaseData`](README.md#basedata).`on` |
-| `opMode?` | [`OperationMode`](README.md#operationmode) | [`BaseData`](README.md#basedata).`opMode` |
+| `on?` | `boolean` | [`BasePlantData`](README.md#baseplantdata).`on` |
+| `opMode?` | [`OperationMode`](README.md#operationmode) | [`BasePlantData`](README.md#baseplantdata).`opMode` |
 
 ***
 
@@ -515,8 +546,8 @@ setData(id: string, postData: PostData): Promise<{
 
 | Property | Modifier | Type |
 | :------ | :------ | :------ |
-| `data` | `readonly` | \{ `"asKwhRaw"`: \{ `"histogramData"`: readonly [`HistogramData`](README.md#histogramdata)[]; \}; \} |
-| `data.asKwhRaw` | `public` | \{ `"histogramData"`: readonly [`HistogramData`](README.md#histogramdata)[]; \} |
+| `data` | `readonly` | \{ `asKwhRaw`: \{ `histogramData`: readonly [`HistogramData`](README.md#histogramdata)[]; \}; \} |
+| `data.asKwhRaw` | `public` | \{ `histogramData`: readonly [`HistogramData`](README.md#histogramdata)[]; \} |
 | `data.asKwhRaw.histogramData` | `public` | readonly [`HistogramData`](README.md#histogramdata)[] |
 
 ***
@@ -532,43 +563,66 @@ setData(id: string, postData: PostData): Promise<{
 
 ***
 
+### Success
+
+#### Properties
+
+| Property | Modifier | Type |
+| :------ | :------ | :------ |
+| `message` | `readonly` | `null` |
+| `ok` | `readonly` | `true` |
+
+***
+
 ### ViewModel
 
 #### Extends
 
-- [`BaseData`](README.md#basedata)
+- [`BasePlantData`](README.md#baseplantdata)
 
 #### Properties
 
 | Property | Type | Inherited from |
 | :------ | :------ | :------ |
-| `boostOn?` | `boolean` | [`BaseData`](README.md#basedata).`boostOn` |
-| `comfortTemp?` | `number` | [`BaseData`](README.md#basedata).`comfortTemp` |
-| `holidayUntil?` | `null` \| `string` | [`BaseData`](README.md#basedata).`holidayUntil` |
-| `on?` | `boolean` | [`BaseData`](README.md#basedata).`on` |
-| `opMode?` | [`OperationMode`](README.md#operationmode) | [`BaseData`](README.md#basedata).`opMode` |
+| `boostOn?` | `boolean` | [`BasePlantData`](README.md#baseplantdata).`boostOn` |
+| `comfortTemp?` | `number` | [`BasePlantData`](README.md#baseplantdata).`comfortTemp` |
+| `holidayUntil?` | `null` \| `string` | [`BasePlantData`](README.md#baseplantdata).`holidayUntil` |
+| `hpState?` | `number` | [`BasePlantData`](README.md#baseplantdata).`hpState` |
+| `on?` | `boolean` | [`BasePlantData`](README.md#baseplantdata).`on` |
+| `opMode?` | [`OperationMode`](README.md#operationmode) | [`BasePlantData`](README.md#baseplantdata).`opMode` |
 | `plantMode?` | [`Mode`](README.md#mode) | - |
 
 ## Type Aliases
 
-### GetData
+### GetData\<T\>
 
 ```ts
-type GetData: BaseGetData<null>;
+type GetData<T>: Failure | Success & {
+  data: {
+     plantData: PlantData;
+     plantSettings: T;
+    };
+};
 ```
+
+#### Type parameters
+
+| Type parameter |
+| :------ |
+| `T` *extends* [`PlantSettings`](README.md#plantsettings) \| `null` |
 
 #### Source
 
-[src/types.ts:84](https://github.com/OlivierZal/ariston-api/blob/4900234dde2a8c388a11ce3b0718250e32bc6f21/src/types.ts#L84)
+[src/types.ts:85](https://github.com/OlivierZal/ariston-api/blob/37e3e6a4469d9c5ec31433f792ee2722c48e67a1/src/types.ts#L85)
 
 ***
 
-### GetDataWithSettings
+### LoginData
 
 ```ts
-type GetDataWithSettings: BaseGetData<PlantSettings>;
+type LoginData: Failure | Success;
 ```
 
 #### Source
 
-[src/types.ts:86](https://github.com/OlivierZal/ariston-api/blob/4900234dde2a8c388a11ce3b0718250e32bc6f21/src/types.ts#L86)
+[src/types.ts:44](https://github.com/OlivierZal/ariston-api/blob/37e3e6a4469d9c5ec31433f792ee2722c48e67a1/src/types.ts#L44)
