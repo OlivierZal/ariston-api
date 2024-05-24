@@ -21,7 +21,6 @@ import APICallRequestData from './APICallRequestData'
 import APICallResponseData from './APICallResponseData'
 import { CookieJar } from 'tough-cookie'
 import createAPICallErrorData from './createAPICallErrorData'
-import https from 'https'
 import { wrapper } from 'axios-cookiejar-support'
 
 export interface APISettings {
@@ -69,13 +68,12 @@ export default class {
       shouldVerifySSL?: boolean
     } = {},
   ) {
-    const { logger = console, settingManager, shouldVerifySSL = true } = config
+    const { logger = console, settingManager } = config
     this.#logger = logger
     this.#settingManager = settingManager
     wrapper(axios)
     this.#api = axios.create({
       baseURL: DOMAIN,
-      httpsAgent: new https.Agent({ rejectUnauthorized: shouldVerifySSL }),
       jar: new CookieJar(),
       withCredentials: true,
     })
