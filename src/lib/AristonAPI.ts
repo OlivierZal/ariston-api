@@ -21,6 +21,7 @@ import APICallRequestData from './APICallRequestData'
 import APICallResponseData from './APICallResponseData'
 import { CookieJar } from 'tough-cookie'
 import createAPICallErrorData from './createAPICallErrorData'
+import https from 'https'
 import { wrapper } from 'axios-cookiejar-support'
 
 export interface APISettings {
@@ -45,33 +46,71 @@ const DOMAIN = 'https://www.ariston-net.remotethermo.com'
 const LOGIN_URL = '/R2/Account/Login'
 
 export default class {
+  readonly #settingManager?: SettingManager
+
+  #expires = ''
+
+  #password = ''
+
   #retry = true
 
   #retryTimeout!: NodeJS.Timeout
+
+  #username = ''
 
   readonly #api: AxiosInstance
 
   readonly #logger: Logger
 
-  readonly #settingManager: SettingManager
-
-  public constructor(settingManager: SettingManager, logger: Logger = console) {
-    this.#settingManager = settingManager
+  public constructor(
+    config: {
+      logger?: Logger
+      settingManager?: SettingManager
+      shouldVerifySSL?: boolean
+    } = {},
+  ) {
+    const { logger = console, settingManager, shouldVerifySSL = true } = config
     this.#logger = logger
+    this.#settingManager = settingManager
     wrapper(axios)
     this.#api = axios.create({
       baseURL: DOMAIN,
+      httpsAgent: new https.Agent({ rejectUnauthorized: shouldVerifySSL }),
       jar: new CookieJar(),
       withCredentials: true,
     })
     this.#setupAxiosInterceptors()
   }
 
+  private get expires(): string {
+    return this.#expires
+  }
+
+  private set expires(value: string) {
+    this.#expires = value
+    this.#settingManager?.set('expires', this.#expires)
+  }
+
+  private get password(): string {
+    return this.#password
+  }
+
+  private set password(value: string) {
+    this.#password = value
+    this.#settingManager?.set('password', this.#password)
+  }
+
+  private get username(): string {
+    return this.#username
+  }
+
+  private set username(value: string) {
+    this.#username = value
+    this.#settingManager?.set('username', this.#username)
+  }
+
   public async applyLogin(data?: LoginCredentials): Promise<boolean> {
-    const { username, password } = data ?? {
-      password: this.#settingManager.get('password') ?? '',
-      username: this.#settingManager.get('username') ?? '',
-    }
+    const { username = this.username, password = this.password } = data ?? {}
     if (username && password) {
       try {
         return (
@@ -98,8 +137,8 @@ export default class {
   public async login(postData: LoginPostData): Promise<{ data: LoginData }> {
     const response = await this.#api.post<LoginData>(LOGIN_URL, postData)
     if (response.data.ok) {
-      this.#settingManager.set('username', postData.email)
-      this.#settingManager.set('password', postData.password)
+      this.username = postData.email
+      this.password = postData.password
     }
     return response
   }
@@ -149,7 +188,7 @@ export default class {
     config: InternalAxiosRequestConfig,
   ): Promise<InternalAxiosRequestConfig> {
     if (config.url !== LOGIN_URL) {
-      const expires = this.#settingManager.get('expires') ?? ''
+      const { expires } = this
       if (expires && DateTime.fromISO(expires) < DateTime.now()) {
         await this.applyLogin()
       }
@@ -198,8 +237,7 @@ export default class {
           (cookie) => cookie.key === '.AspNet.ApplicationCookie',
         )
         if (aspNetCookie) {
-          const expiresDate = new Date(String(aspNetCookie.expires))
-          this.#settingManager.set('expires', expiresDate.toISOString())
+          this.expires = new Date(String(aspNetCookie.expires)).toISOString()
         }
       })
     }
