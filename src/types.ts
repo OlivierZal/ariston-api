@@ -111,8 +111,8 @@ export interface GetSettings {
 
 export interface PlantHeader {
   readonly data: {
-    readonly errorText: string | null
-    readonly errorType: number | null
+    readonly errorText: string
+    readonly errorType: number
   }
 }
 

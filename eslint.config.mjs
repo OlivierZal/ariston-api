@@ -1,5 +1,5 @@
-// @ts-check
 import eslint from '@eslint/js'
+// @ts-expect-error: no existing type
 import importPlugin from 'eslint-plugin-import'
 import jsdoc from 'eslint-plugin-jsdoc'
 import prettier from 'eslint-config-prettier'
@@ -20,13 +20,14 @@ export default tsEslint.config(
     ],
     languageOptions: {
       parserOptions: {
-        project: true,
+        project: 'tsconfig.json',
       },
     },
     linterOptions: {
       reportUnusedDisableDirectives: true,
     },
     plugins: {
+      // @ts-expect-error: wrongly typed
       '@stylistic': stylistic,
       import: importPlugin,
     },
@@ -267,5 +268,10 @@ export default tsEslint.config(
   {
     files: ['**/*.mjs'],
     ...tsEslint.configs.disableTypeChecked,
+    languageOptions: {
+      parserOptions: {
+        project: 'tsconfig.mjs.json',
+      },
+    },
   },
 )
