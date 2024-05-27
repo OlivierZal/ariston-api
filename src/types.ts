@@ -41,7 +41,7 @@ export interface Plant {
   readonly wheType: WheType
 }
 
-export interface BaseData {
+export interface BasePlantData {
   boostOn?: boolean
   comfortTemp?: number
   holidayUntil?: string | null
@@ -49,11 +49,11 @@ export interface BaseData {
   opMode?: OperationMode
 }
 
-export interface PostPlantData extends BaseData {
+export interface PostPlantData extends BasePlantData {
   mode?: Mode
 }
 
-export interface ViewModel extends BaseData {
+export interface ViewModel extends BasePlantData {
   plantMode?: Mode
 }
 
@@ -73,16 +73,33 @@ export interface PlantSettings {
   readonly preHeatingOnOff: boolean
 }
 
-export interface BaseGetData<T extends PlantSettings | null> {
-  readonly data: {
-    readonly plantData: PlantData
-    readonly plantSettings: T
-  }
+export interface Data<T extends PlantSettings | null> {
+  readonly plantData: PlantData
+  readonly plantSettings: T
 }
 
-export type GetData = BaseGetData<null>
+export interface BaseGetData {
+  readonly message: string | null
+  readonly ok: boolean
+}
 
-export type GetDataWithSettings = BaseGetData<PlantSettings>
+export interface GetDataSuccess extends BaseGetData {
+  readonly data: Data<null>
+  readonly ok: true
+}
+
+export interface GetDataFailure extends BaseGetData {
+  readonly ok: false
+}
+
+export interface GetDataWithSettingsSuccess extends BaseGetData {
+  readonly data: Data<PlantSettings>
+  readonly ok: true
+}
+
+export interface GetDataWithSettingsFailure extends BaseGetData {
+  readonly ok: false
+}
 
 export interface BasePostSettings<T> {
   readonly new: T

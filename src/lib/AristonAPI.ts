@@ -1,7 +1,9 @@
 import { DateTime, Duration } from 'luxon'
 import type {
-  GetData,
-  GetDataWithSettings,
+  GetDataFailure,
+  GetDataSuccess,
+  GetDataWithSettingsFailure,
+  GetDataWithSettingsSuccess,
   GetSettings,
   LoginCredentials,
   LoginData,
@@ -130,13 +132,14 @@ export default class {
     return this.#api.get<PlantHeader>(`/R2/Plant/PlantHeader/${id}`)
   }
 
-  public async getDataWithSettings(
-    id: string,
-  ): Promise<{ data: GetDataWithSettings }> {
-    return this.#api.get<GetDataWithSettings>(
-      `/R2/PlantHomeSlp/GetData/${id}`,
-      { params: { fetchSettings: 'true', fetchTimeProg: 'false' } },
-    )
+  public async getDataWithSettings(id: string): Promise<{
+    data: GetDataWithSettingsFailure | GetDataWithSettingsSuccess
+  }> {
+    return this.#api.get<
+      GetDataWithSettingsFailure | GetDataWithSettingsSuccess
+    >(`/R2/PlantHomeSlp/GetData/${id}`, {
+      params: { fetchSettings: 'true', fetchTimeProg: 'false' },
+    })
   }
 
   public async list(): Promise<{ data: Plant[] }> {
@@ -159,8 +162,11 @@ export default class {
   public async setData(
     id: string,
     postData: PostData,
-  ): Promise<{ data: GetData }> {
-    return this.#api.post<GetData>(`/R2/PlantHomeSlp/SetData/${id}`, postData)
+  ): Promise<{ data: GetDataFailure | GetDataSuccess }> {
+    return this.#api.post<GetDataFailure | GetDataSuccess>(
+      `/R2/PlantHomeSlp/SetData/${id}`,
+      postData,
+    )
   }
 
   public async setSettings(
