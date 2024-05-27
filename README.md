@@ -77,7 +77,7 @@ new default(config: {
 
 ###### Source
 
-[src/lib/AristonAPI.ts:66](https://github.com/OlivierZal/ariston-api/blob/2063db533e3d59485126480b5e91d644011d1e90/src/lib/AristonAPI.ts#L66)
+[src/lib/AristonAPI.ts:66](https://github.com/OlivierZal/ariston-api/blob/6ea6c21e9eb6dc4602326a19aa965d826079d710/src/lib/AristonAPI.ts#L66)
 
 #### Methods
 
@@ -99,7 +99,7 @@ applyLogin(data?: LoginCredentials): Promise<boolean>
 
 ###### Source
 
-[src/lib/AristonAPI.ts:113](https://github.com/OlivierZal/ariston-api/blob/2063db533e3d59485126480b5e91d644011d1e90/src/lib/AristonAPI.ts#L113)
+[src/lib/AristonAPI.ts:113](https://github.com/OlivierZal/ariston-api/blob/6ea6c21e9eb6dc4602326a19aa965d826079d710/src/lib/AristonAPI.ts#L113)
 
 ##### errors()
 
@@ -127,7 +127,7 @@ errors(id: string): Promise<{
 
 ###### Source
 
-[src/lib/AristonAPI.ts:133](https://github.com/OlivierZal/ariston-api/blob/2063db533e3d59485126480b5e91d644011d1e90/src/lib/AristonAPI.ts#L133)
+[src/lib/AristonAPI.ts:133](https://github.com/OlivierZal/ariston-api/blob/6ea6c21e9eb6dc4602326a19aa965d826079d710/src/lib/AristonAPI.ts#L133)
 
 ##### getDataWithSettings()
 
@@ -155,7 +155,7 @@ getDataWithSettings(id: string): Promise<{
 
 ###### Source
 
-[src/lib/AristonAPI.ts:137](https://github.com/OlivierZal/ariston-api/blob/2063db533e3d59485126480b5e91d644011d1e90/src/lib/AristonAPI.ts#L137)
+[src/lib/AristonAPI.ts:137](https://github.com/OlivierZal/ariston-api/blob/6ea6c21e9eb6dc4602326a19aa965d826079d710/src/lib/AristonAPI.ts#L137)
 
 ##### list()
 
@@ -177,7 +177,7 @@ list(): Promise<{
 
 ###### Source
 
-[src/lib/AristonAPI.ts:146](https://github.com/OlivierZal/ariston-api/blob/2063db533e3d59485126480b5e91d644011d1e90/src/lib/AristonAPI.ts#L146)
+[src/lib/AristonAPI.ts:146](https://github.com/OlivierZal/ariston-api/blob/6ea6c21e9eb6dc4602326a19aa965d826079d710/src/lib/AristonAPI.ts#L146)
 
 ##### login()
 
@@ -205,7 +205,7 @@ login(postData: LoginPostData): Promise<{
 
 ###### Source
 
-[src/lib/AristonAPI.ts:150](https://github.com/OlivierZal/ariston-api/blob/2063db533e3d59485126480b5e91d644011d1e90/src/lib/AristonAPI.ts#L150)
+[src/lib/AristonAPI.ts:150](https://github.com/OlivierZal/ariston-api/blob/6ea6c21e9eb6dc4602326a19aa965d826079d710/src/lib/AristonAPI.ts#L150)
 
 ##### report()
 
@@ -233,7 +233,7 @@ report(id: string): Promise<{
 
 ###### Source
 
-[src/lib/AristonAPI.ts:159](https://github.com/OlivierZal/ariston-api/blob/2063db533e3d59485126480b5e91d644011d1e90/src/lib/AristonAPI.ts#L159)
+[src/lib/AristonAPI.ts:159](https://github.com/OlivierZal/ariston-api/blob/6ea6c21e9eb6dc4602326a19aa965d826079d710/src/lib/AristonAPI.ts#L159)
 
 ##### setData()
 
@@ -262,7 +262,7 @@ setData(id: string, postData: PostData): Promise<{
 
 ###### Source
 
-[src/lib/AristonAPI.ts:163](https://github.com/OlivierZal/ariston-api/blob/2063db533e3d59485126480b5e91d644011d1e90/src/lib/AristonAPI.ts#L163)
+[src/lib/AristonAPI.ts:163](https://github.com/OlivierZal/ariston-api/blob/6ea6c21e9eb6dc4602326a19aa965d826079d710/src/lib/AristonAPI.ts#L163)
 
 ##### setSettings()
 
@@ -291,7 +291,7 @@ setSettings(id: string, settings: PostSettings): Promise<{
 
 ###### Source
 
-[src/lib/AristonAPI.ts:173](https://github.com/OlivierZal/ariston-api/blob/2063db533e3d59485126480b5e91d644011d1e90/src/lib/AristonAPI.ts#L173)
+[src/lib/AristonAPI.ts:173](https://github.com/OlivierZal/ariston-api/blob/6ea6c21e9eb6dc4602326a19aa965d826079d710/src/lib/AristonAPI.ts#L173)
 
 ## Interfaces
 
@@ -609,7 +609,7 @@ type GetData<T>: Failure | Success & {
 
 #### Source
 
-[src/types.ts:84](https://github.com/OlivierZal/ariston-api/blob/2063db533e3d59485126480b5e91d644011d1e90/src/types.ts#L84)
+[src/types.ts:84](https://github.com/OlivierZal/ariston-api/blob/6ea6c21e9eb6dc4602326a19aa965d826079d710/src/types.ts#L84)
 
 ***
 
@@ -621,4 +621,4 @@ type LoginData: Failure | Success;
 
 #### Source
 
-[src/types.ts:44](https://github.com/OlivierZal/ariston-api/blob/2063db533e3d59485126480b5e91d644011d1e90/src/types.ts#L44)
+[src/types.ts:44](https://github.com/OlivierZal/ariston-api/blob/6ea6c21e9eb6dc4602326a19aa965d826079d710/src/types.ts#L44)
