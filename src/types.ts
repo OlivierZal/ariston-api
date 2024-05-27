@@ -53,6 +53,7 @@ export interface BasePlantData {
   boostOn?: boolean
   comfortTemp?: number
   holidayUntil?: string | null
+  hpState?: number
   on?: boolean
   opMode?: OperationMode
 }
