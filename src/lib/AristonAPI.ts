@@ -1,14 +1,13 @@
 import { DateTime, Duration } from 'luxon'
 import type {
-  GetDataFailure,
-  GetDataSuccess,
-  GetDataWithSettingsSuccess,
+  GetData,
   GetSettings,
   LoginCredentials,
   LoginData,
   LoginPostData,
   Plant,
   PlantHeader,
+  PlantSettings,
   PostData,
   PostSettings,
   ReportData,
@@ -115,9 +114,13 @@ export default class {
     const { username = this.username, password = this.password } = data ?? {}
     if (username && password) {
       try {
-        return (
+        const { message, ok: isOk } = (
           await this.login({ email: username, password, rememberMe: true })
-        ).data.ok
+        ).data
+        if (!isOk) {
+          throw new Error(message)
+        }
+        return true
       } catch (error) {
         if (typeof data !== 'undefined') {
           throw error
@@ -132,9 +135,9 @@ export default class {
   }
 
   public async getDataWithSettings(id: string): Promise<{
-    data: GetDataFailure | GetDataWithSettingsSuccess
+    data: GetData<PlantSettings>
   }> {
-    return this.#api.get<GetDataFailure | GetDataWithSettingsSuccess>(
+    return this.#api.get<GetData<PlantSettings>>(
       `/R2/PlantHomeSlp/GetData/${id}`,
       { params: { fetchSettings: 'true', fetchTimeProg: 'false' } },
     )
@@ -160,8 +163,8 @@ export default class {
   public async setData(
     id: string,
     postData: PostData,
-  ): Promise<{ data: GetDataFailure | GetDataSuccess }> {
-    return this.#api.post<GetDataFailure | GetDataSuccess>(
+  ): Promise<{ data: GetData<null> }> {
+    return this.#api.post<GetData<null>>(
       `/R2/PlantHomeSlp/SetData/${id}`,
       postData,
     )

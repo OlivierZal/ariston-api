@@ -20,6 +20,16 @@ export enum Switch {
   on = 1,
 }
 
+export interface Success {
+  readonly message: null
+  readonly ok: true
+}
+
+export interface Failure {
+  readonly message: string
+  readonly ok: false
+}
+
 export interface LoginCredentials {
   readonly password: string
   readonly username: string
@@ -31,9 +41,7 @@ export interface LoginPostData {
   readonly rememberMe: true
 }
 
-export interface LoginData {
-  readonly ok: boolean
-}
+export type LoginData = Failure | Success
 
 export interface Plant {
   readonly gw: string
@@ -73,33 +81,14 @@ export interface PlantSettings {
   readonly preHeatingOnOff: boolean
 }
 
-export interface Data<T extends PlantSettings | null> {
-  readonly plantData: PlantData
-  readonly plantSettings: T
-}
-
-export interface Success {
-  readonly message: null
-  readonly ok: true
-}
-
-export interface Failure {
-  readonly message: string
-  readonly ok: false
-}
-
-export interface BaseGetData {
-  readonly message: string | null
-  readonly ok: boolean
-}
-
-export type GetDataSuccess = BaseGetData & Data<null> & Success
-
-export type GetDataFailure = BaseGetData & Failure
-
-export type GetDataWithSettingsSuccess = BaseGetData &
-  Data<PlantSettings> &
-  Success
+export type GetData<T extends PlantSettings | null> =
+  | Failure
+  | (Success & {
+      readonly data: {
+        readonly plantData: PlantData
+        readonly plantSettings: T
+      }
+    })
 
 export interface BasePostSettings<T> {
   readonly new: T
