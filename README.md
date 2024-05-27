@@ -75,7 +75,7 @@ new default(config: {
 
 ###### Source
 
-[src/lib/AristonAPI.ts:64](https://github.com/OlivierZal/ariston-api/blob/9a16bafb20fc9b6e6274c3cf91444c0ecbcaa76f/src/lib/AristonAPI.ts#L64)
+[src/lib/AristonAPI.ts:65](https://github.com/OlivierZal/ariston-api/blob/23ddec1852dfe3e3f77c4e2335d9611a9bbaff12/src/lib/AristonAPI.ts#L65)
 
 #### Methods
 
@@ -97,7 +97,35 @@ applyLogin(data?: LoginCredentials): Promise<boolean>
 
 ###### Source
 
-[src/lib/AristonAPI.ts:106](https://github.com/OlivierZal/ariston-api/blob/9a16bafb20fc9b6e6274c3cf91444c0ecbcaa76f/src/lib/AristonAPI.ts#L106)
+[src/lib/AristonAPI.ts:107](https://github.com/OlivierZal/ariston-api/blob/23ddec1852dfe3e3f77c4e2335d9611a9bbaff12/src/lib/AristonAPI.ts#L107)
+
+##### errors()
+
+```ts
+errors(id: string): Promise<{
+  "data": PlantHeader;
+}>
+```
+
+###### Parameters
+
+| Parameter | Type |
+| :------ | :------ |
+| `id` | `string` |
+
+###### Returns
+
+`Promise`\<\{
+  `"data"`: [`PlantHeader`](README.md#plantheader);
+ \}\>
+
+| Member | Type |
+| :------ | :------ |
+| `data` | [`PlantHeader`](README.md#plantheader) |
+
+###### Source
+
+[src/lib/AristonAPI.ts:123](https://github.com/OlivierZal/ariston-api/blob/23ddec1852dfe3e3f77c4e2335d9611a9bbaff12/src/lib/AristonAPI.ts#L123)
 
 ##### getDataWithSettings()
 
@@ -125,7 +153,29 @@ getDataWithSettings(id: string): Promise<{
 
 ###### Source
 
-[src/lib/AristonAPI.ts:122](https://github.com/OlivierZal/ariston-api/blob/9a16bafb20fc9b6e6274c3cf91444c0ecbcaa76f/src/lib/AristonAPI.ts#L122)
+[src/lib/AristonAPI.ts:127](https://github.com/OlivierZal/ariston-api/blob/23ddec1852dfe3e3f77c4e2335d9611a9bbaff12/src/lib/AristonAPI.ts#L127)
+
+##### list()
+
+```ts
+list(): Promise<{
+  "data": Plant[];
+}>
+```
+
+###### Returns
+
+`Promise`\<\{
+  `"data"`: [`Plant`](README.md#plant)[];
+ \}\>
+
+| Member | Type |
+| :------ | :------ |
+| `data` | [`Plant`](README.md#plant)[] |
+
+###### Source
+
+[src/lib/AristonAPI.ts:136](https://github.com/OlivierZal/ariston-api/blob/23ddec1852dfe3e3f77c4e2335d9611a9bbaff12/src/lib/AristonAPI.ts#L136)
 
 ##### login()
 
@@ -153,12 +203,12 @@ login(postData: LoginPostData): Promise<{
 
 ###### Source
 
-[src/lib/AristonAPI.ts:131](https://github.com/OlivierZal/ariston-api/blob/9a16bafb20fc9b6e6274c3cf91444c0ecbcaa76f/src/lib/AristonAPI.ts#L131)
+[src/lib/AristonAPI.ts:140](https://github.com/OlivierZal/ariston-api/blob/23ddec1852dfe3e3f77c4e2335d9611a9bbaff12/src/lib/AristonAPI.ts#L140)
 
-##### plantMetering()
+##### report()
 
 ```ts
-plantMetering(id: string): Promise<{
+report(id: string): Promise<{
   "data": ReportData;
 }>
 ```
@@ -181,58 +231,7 @@ plantMetering(id: string): Promise<{
 
 ###### Source
 
-[src/lib/AristonAPI.ts:140](https://github.com/OlivierZal/ariston-api/blob/9a16bafb20fc9b6e6274c3cf91444c0ecbcaa76f/src/lib/AristonAPI.ts#L140)
-
-##### plantSettings()
-
-```ts
-plantSettings(id: string, settings: PostSettings): Promise<{
-  "data": GetSettings;
-}>
-```
-
-###### Parameters
-
-| Parameter | Type |
-| :------ | :------ |
-| `id` | `string` |
-| `settings` | [`PostSettings`](README.md#postsettings) |
-
-###### Returns
-
-`Promise`\<\{
-  `"data"`: [`GetSettings`](README.md#getsettings);
- \}\>
-
-| Member | Type |
-| :------ | :------ |
-| `data` | [`GetSettings`](README.md#getsettings) |
-
-###### Source
-
-[src/lib/AristonAPI.ts:144](https://github.com/OlivierZal/ariston-api/blob/9a16bafb20fc9b6e6274c3cf91444c0ecbcaa76f/src/lib/AristonAPI.ts#L144)
-
-##### plants()
-
-```ts
-plants(): Promise<{
-  "data": Plant[];
-}>
-```
-
-###### Returns
-
-`Promise`\<\{
-  `"data"`: [`Plant`](README.md#plant)[];
- \}\>
-
-| Member | Type |
-| :------ | :------ |
-| `data` | [`Plant`](README.md#plant)[] |
-
-###### Source
-
-[src/lib/AristonAPI.ts:154](https://github.com/OlivierZal/ariston-api/blob/9a16bafb20fc9b6e6274c3cf91444c0ecbcaa76f/src/lib/AristonAPI.ts#L154)
+[src/lib/AristonAPI.ts:149](https://github.com/OlivierZal/ariston-api/blob/23ddec1852dfe3e3f77c4e2335d9611a9bbaff12/src/lib/AristonAPI.ts#L149)
 
 ##### setData()
 
@@ -261,7 +260,36 @@ setData(id: string, postData: PostData): Promise<{
 
 ###### Source
 
-[src/lib/AristonAPI.ts:158](https://github.com/OlivierZal/ariston-api/blob/9a16bafb20fc9b6e6274c3cf91444c0ecbcaa76f/src/lib/AristonAPI.ts#L158)
+[src/lib/AristonAPI.ts:153](https://github.com/OlivierZal/ariston-api/blob/23ddec1852dfe3e3f77c4e2335d9611a9bbaff12/src/lib/AristonAPI.ts#L153)
+
+##### setSettings()
+
+```ts
+setSettings(id: string, settings: PostSettings): Promise<{
+  "data": GetSettings;
+}>
+```
+
+###### Parameters
+
+| Parameter | Type |
+| :------ | :------ |
+| `id` | `string` |
+| `settings` | [`PostSettings`](README.md#postsettings) |
+
+###### Returns
+
+`Promise`\<\{
+  `"data"`: [`GetSettings`](README.md#getsettings);
+ \}\>
+
+| Member | Type |
+| :------ | :------ |
+| `data` | [`GetSettings`](README.md#getsettings) |
+
+###### Source
+
+[src/lib/AristonAPI.ts:160](https://github.com/OlivierZal/ariston-api/blob/23ddec1852dfe3e3f77c4e2335d9611a9bbaff12/src/lib/AristonAPI.ts#L160)
 
 ## Interfaces
 
@@ -302,7 +330,7 @@ setData(id: string, postData: PostData): Promise<{
 
 | Type parameter |
 | :------ |
-| `T` *extends* [`PlantSettings`](README.md#plantsettings-1) \| `null` |
+| `T` *extends* [`PlantSettings`](README.md#plantsettings) \| `null` |
 
 #### Properties
 
@@ -450,8 +478,19 @@ setData(id: string, postData: PostData): Promise<{
 | `mode` | `readonly` | [`Mode`](README.md#mode) | `Readonly.mode` |
 | `on` | `readonly` | `boolean` | `Readonly.on` |
 | `opMode` | `readonly` | [`OperationMode`](README.md#operationmode) | `Readonly.opMode` |
-| `procReqTemp` | `readonly` | `number` | - |
 | `waterTemp` | `readonly` | `number` | - |
+
+***
+
+### PlantHeader
+
+#### Properties
+
+| Property | Modifier | Type |
+| :------ | :------ | :------ |
+| `data` | `readonly` | \{ `"errorText"`: `null` \| `string`; `"errorType"`: `null` \| `number`; \} |
+| `data.errorText` | `public` | `null` \| `string` |
+| `data.errorType` | `public` | `null` \| `number` |
 
 ***
 
@@ -563,7 +602,7 @@ type GetData: BaseGetData<null>;
 
 #### Source
 
-[src/types.ts:84](https://github.com/OlivierZal/ariston-api/blob/9a16bafb20fc9b6e6274c3cf91444c0ecbcaa76f/src/types.ts#L84)
+[src/types.ts:83](https://github.com/OlivierZal/ariston-api/blob/23ddec1852dfe3e3f77c4e2335d9611a9bbaff12/src/types.ts#L83)
 
 ***
 
@@ -575,4 +614,4 @@ type GetDataWithSettings: BaseGetData<PlantSettings>;
 
 #### Source
 
-[src/types.ts:86](https://github.com/OlivierZal/ariston-api/blob/9a16bafb20fc9b6e6274c3cf91444c0ecbcaa76f/src/types.ts#L86)
+[src/types.ts:85](https://github.com/OlivierZal/ariston-api/blob/23ddec1852dfe3e3f77c4e2335d9611a9bbaff12/src/types.ts#L85)
