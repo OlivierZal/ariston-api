@@ -42,6 +42,7 @@ export interface SettingManager {
   set: <K extends keyof APISettings>(key: K, value: APISettings[K]) => void
 }
 
+const ACCEPT_LANGUAGE = 'Accept-Language'
 const DOMAIN = 'https://www.ariston-net.remotethermo.com'
 const LOGIN_URL = '/R2/Account/Login'
 
@@ -63,14 +64,19 @@ export default class {
   readonly #logger: Logger
 
   public constructor(
-    config: { logger?: Logger; settingManager?: SettingManager } = {},
+    config: {
+      language?: string
+      logger?: Logger
+      settingManager?: SettingManager
+    } = {},
   ) {
-    const { logger = console, settingManager } = config
+    const { language = 'en', logger = console, settingManager } = config
     this.#logger = logger
     this.#settingManager = settingManager
     wrapper(axios)
     this.#api = axios.create({
       baseURL: DOMAIN,
+      headers: { [ACCEPT_LANGUAGE]: language },
       jar: new CookieJar(),
       withCredentials: true,
     })
