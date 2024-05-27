@@ -77,7 +77,7 @@ new default(config: {
 
 ###### Source
 
-[src/lib/AristonAPI.ts:66](https://github.com/OlivierZal/ariston-api/blob/51bf61b3544ac1bb07f71bd09dd3ae7cf5601c07/src/lib/AristonAPI.ts#L66)
+[src/lib/AristonAPI.ts:68](https://github.com/OlivierZal/ariston-api/blob/9366f8f84d33d7ccd2fcba0e2ff6bfd865a75778/src/lib/AristonAPI.ts#L68)
 
 #### Methods
 
@@ -99,7 +99,7 @@ applyLogin(data?: LoginCredentials): Promise<boolean>
 
 ###### Source
 
-[src/lib/AristonAPI.ts:113](https://github.com/OlivierZal/ariston-api/blob/51bf61b3544ac1bb07f71bd09dd3ae7cf5601c07/src/lib/AristonAPI.ts#L113)
+[src/lib/AristonAPI.ts:115](https://github.com/OlivierZal/ariston-api/blob/9366f8f84d33d7ccd2fcba0e2ff6bfd865a75778/src/lib/AristonAPI.ts#L115)
 
 ##### errors()
 
@@ -127,13 +127,13 @@ errors(id: string): Promise<{
 
 ###### Source
 
-[src/lib/AristonAPI.ts:129](https://github.com/OlivierZal/ariston-api/blob/51bf61b3544ac1bb07f71bd09dd3ae7cf5601c07/src/lib/AristonAPI.ts#L129)
+[src/lib/AristonAPI.ts:131](https://github.com/OlivierZal/ariston-api/blob/9366f8f84d33d7ccd2fcba0e2ff6bfd865a75778/src/lib/AristonAPI.ts#L131)
 
 ##### getDataWithSettings()
 
 ```ts
 getDataWithSettings(id: string): Promise<{
-  "data": GetDataWithSettings;
+  "data": GetDataWithSettingsFailure | GetDataWithSettingsSuccess;
 }>
 ```
 
@@ -146,16 +146,16 @@ getDataWithSettings(id: string): Promise<{
 ###### Returns
 
 `Promise`\<\{
-  `"data"`: [`GetDataWithSettings`](README.md#getdatawithsettings-1);
+  `"data"`: [`GetDataWithSettingsFailure`](README.md#getdatawithsettingsfailure) \| [`GetDataWithSettingsSuccess`](README.md#getdatawithsettingssuccess);
  \}\>
 
 | Member | Type |
 | :------ | :------ |
-| `data` | [`GetDataWithSettings`](README.md#getdatawithsettings-1) |
+| `data` | [`GetDataWithSettingsFailure`](README.md#getdatawithsettingsfailure) \| [`GetDataWithSettingsSuccess`](README.md#getdatawithsettingssuccess) |
 
 ###### Source
 
-[src/lib/AristonAPI.ts:133](https://github.com/OlivierZal/ariston-api/blob/51bf61b3544ac1bb07f71bd09dd3ae7cf5601c07/src/lib/AristonAPI.ts#L133)
+[src/lib/AristonAPI.ts:135](https://github.com/OlivierZal/ariston-api/blob/9366f8f84d33d7ccd2fcba0e2ff6bfd865a75778/src/lib/AristonAPI.ts#L135)
 
 ##### list()
 
@@ -177,7 +177,7 @@ list(): Promise<{
 
 ###### Source
 
-[src/lib/AristonAPI.ts:142](https://github.com/OlivierZal/ariston-api/blob/51bf61b3544ac1bb07f71bd09dd3ae7cf5601c07/src/lib/AristonAPI.ts#L142)
+[src/lib/AristonAPI.ts:145](https://github.com/OlivierZal/ariston-api/blob/9366f8f84d33d7ccd2fcba0e2ff6bfd865a75778/src/lib/AristonAPI.ts#L145)
 
 ##### login()
 
@@ -205,7 +205,7 @@ login(postData: LoginPostData): Promise<{
 
 ###### Source
 
-[src/lib/AristonAPI.ts:146](https://github.com/OlivierZal/ariston-api/blob/51bf61b3544ac1bb07f71bd09dd3ae7cf5601c07/src/lib/AristonAPI.ts#L146)
+[src/lib/AristonAPI.ts:149](https://github.com/OlivierZal/ariston-api/blob/9366f8f84d33d7ccd2fcba0e2ff6bfd865a75778/src/lib/AristonAPI.ts#L149)
 
 ##### report()
 
@@ -233,13 +233,13 @@ report(id: string): Promise<{
 
 ###### Source
 
-[src/lib/AristonAPI.ts:155](https://github.com/OlivierZal/ariston-api/blob/51bf61b3544ac1bb07f71bd09dd3ae7cf5601c07/src/lib/AristonAPI.ts#L155)
+[src/lib/AristonAPI.ts:158](https://github.com/OlivierZal/ariston-api/blob/9366f8f84d33d7ccd2fcba0e2ff6bfd865a75778/src/lib/AristonAPI.ts#L158)
 
 ##### setData()
 
 ```ts
 setData(id: string, postData: PostData): Promise<{
-  "data": GetData;
+  "data": GetDataFailure | GetDataSuccess;
 }>
 ```
 
@@ -253,16 +253,16 @@ setData(id: string, postData: PostData): Promise<{
 ###### Returns
 
 `Promise`\<\{
-  `"data"`: [`GetData`](README.md#getdata);
+  `"data"`: [`GetDataFailure`](README.md#getdatafailure) \| [`GetDataSuccess`](README.md#getdatasuccess);
  \}\>
 
 | Member | Type |
 | :------ | :------ |
-| `data` | [`GetData`](README.md#getdata) |
+| `data` | [`GetDataFailure`](README.md#getdatafailure) \| [`GetDataSuccess`](README.md#getdatasuccess) |
 
 ###### Source
 
-[src/lib/AristonAPI.ts:159](https://github.com/OlivierZal/ariston-api/blob/51bf61b3544ac1bb07f71bd09dd3ae7cf5601c07/src/lib/AristonAPI.ts#L159)
+[src/lib/AristonAPI.ts:162](https://github.com/OlivierZal/ariston-api/blob/9366f8f84d33d7ccd2fcba0e2ff6bfd865a75778/src/lib/AristonAPI.ts#L162)
 
 ##### setSettings()
 
@@ -291,7 +291,7 @@ setSettings(id: string, settings: PostSettings): Promise<{
 
 ###### Source
 
-[src/lib/AristonAPI.ts:166](https://github.com/OlivierZal/ariston-api/blob/51bf61b3544ac1bb07f71bd09dd3ae7cf5601c07/src/lib/AristonAPI.ts#L166)
+[src/lib/AristonAPI.ts:172](https://github.com/OlivierZal/ariston-api/blob/9366f8f84d33d7ccd2fcba0e2ff6bfd865a75778/src/lib/AristonAPI.ts#L172)
 
 ## Interfaces
 
@@ -307,7 +307,25 @@ setSettings(id: string, settings: PostSettings): Promise<{
 
 ***
 
-### BaseData
+### BaseGetData
+
+#### Extended by
+
+- [`GetDataFailure`](README.md#getdatafailure)
+- [`GetDataSuccess`](README.md#getdatasuccess)
+- [`GetDataWithSettingsFailure`](README.md#getdatawithsettingsfailure)
+- [`GetDataWithSettingsSuccess`](README.md#getdatawithsettingssuccess)
+
+#### Properties
+
+| Property | Modifier | Type |
+| :------ | :------ | :------ |
+| `message` | `readonly` | `null` \| `string` |
+| `ok` | `readonly` | `boolean` |
+
+***
+
+### BasePlantData
 
 #### Extended by
 
@@ -323,24 +341,6 @@ setSettings(id: string, settings: PostSettings): Promise<{
 | `holidayUntil?` | `null` \| `string` |
 | `on?` | `boolean` |
 | `opMode?` | [`OperationMode`](README.md#operationmode) |
-
-***
-
-### BaseGetData\<T\>
-
-#### Type parameters
-
-| Type parameter |
-| :------ |
-| `T` *extends* [`PlantSettings`](README.md#plantsettings) \| `null` |
-
-#### Properties
-
-| Property | Modifier | Type |
-| :------ | :------ | :------ |
-| `data` | `readonly` | \{ `"plantData"`: [`PlantData`](README.md#plantdata); `"plantSettings"`: `T`; \} |
-| `data.plantData` | `public` | [`PlantData`](README.md#plantdata) |
-| `data.plantSettings` | `public` | `T` |
 
 ***
 
@@ -382,6 +382,85 @@ setSettings(id: string, settings: PostSettings): Promise<{
 | :------ | :------ | :------ | :------ |
 | `new` | `readonly` | `T` | [`BasePostSettings`](README.md#basepostsettingst).`new` |
 | `old` | `readonly` | `T` | - |
+
+***
+
+### Data\<T\>
+
+#### Type parameters
+
+| Type parameter |
+| :------ |
+| `T` *extends* [`PlantSettings`](README.md#plantsettings) \| `null` |
+
+#### Properties
+
+| Property | Modifier | Type |
+| :------ | :------ | :------ |
+| `plantData` | `readonly` | [`PlantData`](README.md#plantdata) |
+| `plantSettings` | `readonly` | `T` |
+
+***
+
+### GetDataFailure
+
+#### Extends
+
+- [`BaseGetData`](README.md#basegetdata)
+
+#### Properties
+
+| Property | Modifier | Type | Overrides | Inherited from |
+| :------ | :------ | :------ | :------ | :------ |
+| `message` | `readonly` | `null` \| `string` | [`BaseGetData`](README.md#basegetdata).`message` | [`BaseGetData`](README.md#basegetdata).`message` |
+| `ok` | `readonly` | `false` | [`BaseGetData`](README.md#basegetdata).`ok` | [`BaseGetData`](README.md#basegetdata).`ok` |
+
+***
+
+### GetDataSuccess
+
+#### Extends
+
+- [`BaseGetData`](README.md#basegetdata)
+
+#### Properties
+
+| Property | Modifier | Type | Overrides | Inherited from |
+| :------ | :------ | :------ | :------ | :------ |
+| `data` | `readonly` | [`Data`](README.md#datat)\<`null`\> | - | - |
+| `message` | `readonly` | `null` \| `string` | [`BaseGetData`](README.md#basegetdata).`message` | [`BaseGetData`](README.md#basegetdata).`message` |
+| `ok` | `readonly` | `true` | [`BaseGetData`](README.md#basegetdata).`ok` | [`BaseGetData`](README.md#basegetdata).`ok` |
+
+***
+
+### GetDataWithSettingsFailure
+
+#### Extends
+
+- [`BaseGetData`](README.md#basegetdata)
+
+#### Properties
+
+| Property | Modifier | Type | Overrides | Inherited from |
+| :------ | :------ | :------ | :------ | :------ |
+| `message` | `readonly` | `null` \| `string` | [`BaseGetData`](README.md#basegetdata).`message` | [`BaseGetData`](README.md#basegetdata).`message` |
+| `ok` | `readonly` | `false` | [`BaseGetData`](README.md#basegetdata).`ok` | [`BaseGetData`](README.md#basegetdata).`ok` |
+
+***
+
+### GetDataWithSettingsSuccess
+
+#### Extends
+
+- [`BaseGetData`](README.md#basegetdata)
+
+#### Properties
+
+| Property | Modifier | Type | Overrides | Inherited from |
+| :------ | :------ | :------ | :------ | :------ |
+| `data` | `readonly` | [`Data`](README.md#datat)\<[`PlantSettings`](README.md#plantsettings)\> | - | - |
+| `message` | `readonly` | `null` \| `string` | [`BaseGetData`](README.md#basegetdata).`message` | [`BaseGetData`](README.md#basegetdata).`message` |
+| `ok` | `readonly` | `true` | [`BaseGetData`](README.md#basegetdata).`ok` | [`BaseGetData`](README.md#basegetdata).`ok` |
 
 ***
 
@@ -526,18 +605,18 @@ setSettings(id: string, settings: PostSettings): Promise<{
 
 #### Extends
 
-- [`BaseData`](README.md#basedata)
+- [`BasePlantData`](README.md#baseplantdata)
 
 #### Properties
 
 | Property | Type | Inherited from |
 | :------ | :------ | :------ |
-| `boostOn?` | `boolean` | [`BaseData`](README.md#basedata).`boostOn` |
-| `comfortTemp?` | `number` | [`BaseData`](README.md#basedata).`comfortTemp` |
-| `holidayUntil?` | `null` \| `string` | [`BaseData`](README.md#basedata).`holidayUntil` |
+| `boostOn?` | `boolean` | [`BasePlantData`](README.md#baseplantdata).`boostOn` |
+| `comfortTemp?` | `number` | [`BasePlantData`](README.md#baseplantdata).`comfortTemp` |
+| `holidayUntil?` | `null` \| `string` | [`BasePlantData`](README.md#baseplantdata).`holidayUntil` |
 | `mode?` | [`Mode`](README.md#mode) | - |
-| `on?` | `boolean` | [`BaseData`](README.md#basedata).`on` |
-| `opMode?` | [`OperationMode`](README.md#operationmode) | [`BaseData`](README.md#basedata).`opMode` |
+| `on?` | `boolean` | [`BasePlantData`](README.md#baseplantdata).`on` |
+| `opMode?` | [`OperationMode`](README.md#operationmode) | [`BasePlantData`](README.md#baseplantdata).`opMode` |
 
 ***
 
@@ -581,39 +660,15 @@ setSettings(id: string, settings: PostSettings): Promise<{
 
 #### Extends
 
-- [`BaseData`](README.md#basedata)
+- [`BasePlantData`](README.md#baseplantdata)
 
 #### Properties
 
 | Property | Type | Inherited from |
 | :------ | :------ | :------ |
-| `boostOn?` | `boolean` | [`BaseData`](README.md#basedata).`boostOn` |
-| `comfortTemp?` | `number` | [`BaseData`](README.md#basedata).`comfortTemp` |
-| `holidayUntil?` | `null` \| `string` | [`BaseData`](README.md#basedata).`holidayUntil` |
-| `on?` | `boolean` | [`BaseData`](README.md#basedata).`on` |
-| `opMode?` | [`OperationMode`](README.md#operationmode) | [`BaseData`](README.md#basedata).`opMode` |
+| `boostOn?` | `boolean` | [`BasePlantData`](README.md#baseplantdata).`boostOn` |
+| `comfortTemp?` | `number` | [`BasePlantData`](README.md#baseplantdata).`comfortTemp` |
+| `holidayUntil?` | `null` \| `string` | [`BasePlantData`](README.md#baseplantdata).`holidayUntil` |
+| `on?` | `boolean` | [`BasePlantData`](README.md#baseplantdata).`on` |
+| `opMode?` | [`OperationMode`](README.md#operationmode) | [`BasePlantData`](README.md#baseplantdata).`opMode` |
 | `plantMode?` | [`Mode`](README.md#mode) | - |
-
-## Type Aliases
-
-### GetData
-
-```ts
-type GetData: BaseGetData<null>;
-```
-
-#### Source
-
-[src/types.ts:83](https://github.com/OlivierZal/ariston-api/blob/51bf61b3544ac1bb07f71bd09dd3ae7cf5601c07/src/types.ts#L83)
-
-***
-
-### GetDataWithSettings
-
-```ts
-type GetDataWithSettings: BaseGetData<PlantSettings>;
-```
-
-#### Source
-
-[src/types.ts:85](https://github.com/OlivierZal/ariston-api/blob/51bf61b3544ac1bb07f71bd09dd3ae7cf5601c07/src/types.ts#L85)
