@@ -77,7 +77,7 @@ new default(config: {
 
 ###### Source
 
-[src/lib/AristonAPI.ts:68](https://github.com/OlivierZal/ariston-api/blob/9366f8f84d33d7ccd2fcba0e2ff6bfd865a75778/src/lib/AristonAPI.ts#L68)
+[src/lib/AristonAPI.ts:67](https://github.com/OlivierZal/ariston-api/blob/ece69cc6ef550813fda8958572b6c33dffdb345c/src/lib/AristonAPI.ts#L67)
 
 #### Methods
 
@@ -99,7 +99,7 @@ applyLogin(data?: LoginCredentials): Promise<boolean>
 
 ###### Source
 
-[src/lib/AristonAPI.ts:115](https://github.com/OlivierZal/ariston-api/blob/9366f8f84d33d7ccd2fcba0e2ff6bfd865a75778/src/lib/AristonAPI.ts#L115)
+[src/lib/AristonAPI.ts:114](https://github.com/OlivierZal/ariston-api/blob/ece69cc6ef550813fda8958572b6c33dffdb345c/src/lib/AristonAPI.ts#L114)
 
 ##### errors()
 
@@ -127,13 +127,13 @@ errors(id: string): Promise<{
 
 ###### Source
 
-[src/lib/AristonAPI.ts:131](https://github.com/OlivierZal/ariston-api/blob/9366f8f84d33d7ccd2fcba0e2ff6bfd865a75778/src/lib/AristonAPI.ts#L131)
+[src/lib/AristonAPI.ts:130](https://github.com/OlivierZal/ariston-api/blob/ece69cc6ef550813fda8958572b6c33dffdb345c/src/lib/AristonAPI.ts#L130)
 
 ##### getDataWithSettings()
 
 ```ts
 getDataWithSettings(id: string): Promise<{
-  "data": GetDataWithSettingsFailure | GetDataWithSettingsSuccess;
+  "data": GetDataFailure | GetDataWithSettingsSuccess;
 }>
 ```
 
@@ -146,16 +146,16 @@ getDataWithSettings(id: string): Promise<{
 ###### Returns
 
 `Promise`\<\{
-  `"data"`: [`GetDataWithSettingsFailure`](README.md#getdatawithsettingsfailure) \| [`GetDataWithSettingsSuccess`](README.md#getdatawithsettingssuccess);
+  `"data"`: [`GetDataFailure`](README.md#getdatafailure) \| [`GetDataWithSettingsSuccess`](README.md#getdatawithsettingssuccess);
  \}\>
 
 | Member | Type |
 | :------ | :------ |
-| `data` | [`GetDataWithSettingsFailure`](README.md#getdatawithsettingsfailure) \| [`GetDataWithSettingsSuccess`](README.md#getdatawithsettingssuccess) |
+| `data` | [`GetDataFailure`](README.md#getdatafailure) \| [`GetDataWithSettingsSuccess`](README.md#getdatawithsettingssuccess) |
 
 ###### Source
 
-[src/lib/AristonAPI.ts:135](https://github.com/OlivierZal/ariston-api/blob/9366f8f84d33d7ccd2fcba0e2ff6bfd865a75778/src/lib/AristonAPI.ts#L135)
+[src/lib/AristonAPI.ts:134](https://github.com/OlivierZal/ariston-api/blob/ece69cc6ef550813fda8958572b6c33dffdb345c/src/lib/AristonAPI.ts#L134)
 
 ##### list()
 
@@ -177,7 +177,7 @@ list(): Promise<{
 
 ###### Source
 
-[src/lib/AristonAPI.ts:145](https://github.com/OlivierZal/ariston-api/blob/9366f8f84d33d7ccd2fcba0e2ff6bfd865a75778/src/lib/AristonAPI.ts#L145)
+[src/lib/AristonAPI.ts:143](https://github.com/OlivierZal/ariston-api/blob/ece69cc6ef550813fda8958572b6c33dffdb345c/src/lib/AristonAPI.ts#L143)
 
 ##### login()
 
@@ -205,7 +205,7 @@ login(postData: LoginPostData): Promise<{
 
 ###### Source
 
-[src/lib/AristonAPI.ts:149](https://github.com/OlivierZal/ariston-api/blob/9366f8f84d33d7ccd2fcba0e2ff6bfd865a75778/src/lib/AristonAPI.ts#L149)
+[src/lib/AristonAPI.ts:147](https://github.com/OlivierZal/ariston-api/blob/ece69cc6ef550813fda8958572b6c33dffdb345c/src/lib/AristonAPI.ts#L147)
 
 ##### report()
 
@@ -233,7 +233,7 @@ report(id: string): Promise<{
 
 ###### Source
 
-[src/lib/AristonAPI.ts:158](https://github.com/OlivierZal/ariston-api/blob/9366f8f84d33d7ccd2fcba0e2ff6bfd865a75778/src/lib/AristonAPI.ts#L158)
+[src/lib/AristonAPI.ts:156](https://github.com/OlivierZal/ariston-api/blob/ece69cc6ef550813fda8958572b6c33dffdb345c/src/lib/AristonAPI.ts#L156)
 
 ##### setData()
 
@@ -262,7 +262,7 @@ setData(id: string, postData: PostData): Promise<{
 
 ###### Source
 
-[src/lib/AristonAPI.ts:162](https://github.com/OlivierZal/ariston-api/blob/9366f8f84d33d7ccd2fcba0e2ff6bfd865a75778/src/lib/AristonAPI.ts#L162)
+[src/lib/AristonAPI.ts:160](https://github.com/OlivierZal/ariston-api/blob/ece69cc6ef550813fda8958572b6c33dffdb345c/src/lib/AristonAPI.ts#L160)
 
 ##### setSettings()
 
@@ -291,7 +291,7 @@ setSettings(id: string, settings: PostSettings): Promise<{
 
 ###### Source
 
-[src/lib/AristonAPI.ts:172](https://github.com/OlivierZal/ariston-api/blob/9366f8f84d33d7ccd2fcba0e2ff6bfd865a75778/src/lib/AristonAPI.ts#L172)
+[src/lib/AristonAPI.ts:170](https://github.com/OlivierZal/ariston-api/blob/ece69cc6ef550813fda8958572b6c33dffdb345c/src/lib/AristonAPI.ts#L170)
 
 ## Interfaces
 
@@ -308,13 +308,6 @@ setSettings(id: string, settings: PostSettings): Promise<{
 ***
 
 ### BaseGetData
-
-#### Extended by
-
-- [`GetDataFailure`](README.md#getdatafailure)
-- [`GetDataSuccess`](README.md#getdatasuccess)
-- [`GetDataWithSettingsFailure`](README.md#getdatawithsettingsfailure)
-- [`GetDataWithSettingsSuccess`](README.md#getdatawithsettingssuccess)
 
 #### Properties
 
@@ -399,68 +392,6 @@ setSettings(id: string, settings: PostSettings): Promise<{
 | :------ | :------ | :------ |
 | `plantData` | `readonly` | [`PlantData`](README.md#plantdata) |
 | `plantSettings` | `readonly` | `T` |
-
-***
-
-### GetDataFailure
-
-#### Extends
-
-- [`BaseGetData`](README.md#basegetdata)
-
-#### Properties
-
-| Property | Modifier | Type | Overrides | Inherited from |
-| :------ | :------ | :------ | :------ | :------ |
-| `message` | `readonly` | `null` \| `string` | [`BaseGetData`](README.md#basegetdata).`message` | [`BaseGetData`](README.md#basegetdata).`message` |
-| `ok` | `readonly` | `false` | [`BaseGetData`](README.md#basegetdata).`ok` | [`BaseGetData`](README.md#basegetdata).`ok` |
-
-***
-
-### GetDataSuccess
-
-#### Extends
-
-- [`BaseGetData`](README.md#basegetdata)
-
-#### Properties
-
-| Property | Modifier | Type | Overrides | Inherited from |
-| :------ | :------ | :------ | :------ | :------ |
-| `data` | `readonly` | [`Data`](README.md#datat)\<`null`\> | - | - |
-| `message` | `readonly` | `null` \| `string` | [`BaseGetData`](README.md#basegetdata).`message` | [`BaseGetData`](README.md#basegetdata).`message` |
-| `ok` | `readonly` | `true` | [`BaseGetData`](README.md#basegetdata).`ok` | [`BaseGetData`](README.md#basegetdata).`ok` |
-
-***
-
-### GetDataWithSettingsFailure
-
-#### Extends
-
-- [`BaseGetData`](README.md#basegetdata)
-
-#### Properties
-
-| Property | Modifier | Type | Overrides | Inherited from |
-| :------ | :------ | :------ | :------ | :------ |
-| `message` | `readonly` | `null` \| `string` | [`BaseGetData`](README.md#basegetdata).`message` | [`BaseGetData`](README.md#basegetdata).`message` |
-| `ok` | `readonly` | `false` | [`BaseGetData`](README.md#basegetdata).`ok` | [`BaseGetData`](README.md#basegetdata).`ok` |
-
-***
-
-### GetDataWithSettingsSuccess
-
-#### Extends
-
-- [`BaseGetData`](README.md#basegetdata)
-
-#### Properties
-
-| Property | Modifier | Type | Overrides | Inherited from |
-| :------ | :------ | :------ | :------ | :------ |
-| `data` | `readonly` | [`Data`](README.md#datat)\<[`PlantSettings`](README.md#plantsettings)\> | - | - |
-| `message` | `readonly` | `null` \| `string` | [`BaseGetData`](README.md#basegetdata).`message` | [`BaseGetData`](README.md#basegetdata).`message` |
-| `ok` | `readonly` | `true` | [`BaseGetData`](README.md#basegetdata).`ok` | [`BaseGetData`](README.md#basegetdata).`ok` |
 
 ***
 
@@ -672,3 +603,39 @@ setSettings(id: string, settings: PostSettings): Promise<{
 | `on?` | `boolean` | [`BasePlantData`](README.md#baseplantdata).`on` |
 | `opMode?` | [`OperationMode`](README.md#operationmode) | [`BasePlantData`](README.md#baseplantdata).`opMode` |
 | `plantMode?` | [`Mode`](README.md#mode) | - |
+
+## Type Aliases
+
+### GetDataFailure
+
+```ts
+type GetDataFailure: BaseGetData & Failure;
+```
+
+#### Source
+
+[src/types.ts:98](https://github.com/OlivierZal/ariston-api/blob/ece69cc6ef550813fda8958572b6c33dffdb345c/src/types.ts#L98)
+
+***
+
+### GetDataSuccess
+
+```ts
+type GetDataSuccess: BaseGetData & Data<null> & Success;
+```
+
+#### Source
+
+[src/types.ts:96](https://github.com/OlivierZal/ariston-api/blob/ece69cc6ef550813fda8958572b6c33dffdb345c/src/types.ts#L96)
+
+***
+
+### GetDataWithSettingsSuccess
+
+```ts
+type GetDataWithSettingsSuccess: BaseGetData & Data<PlantSettings> & Success;
+```
+
+#### Source
+
+[src/types.ts:100](https://github.com/OlivierZal/ariston-api/blob/ece69cc6ef550813fda8958572b6c33dffdb345c/src/types.ts#L100)
