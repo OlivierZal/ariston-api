@@ -77,7 +77,7 @@ new default(config: {
 
 ###### Source
 
-[src/lib/AristonAPI.ts:66](https://github.com/OlivierZal/ariston-api/blob/9ce5f39574da20858e1fd4e2d1ac7f8b062a1afd/src/lib/AristonAPI.ts#L66)
+[src/lib/AristonAPI.ts:66](https://github.com/OlivierZal/ariston-api/blob/51bf61b3544ac1bb07f71bd09dd3ae7cf5601c07/src/lib/AristonAPI.ts#L66)
 
 #### Methods
 
@@ -99,7 +99,7 @@ applyLogin(data?: LoginCredentials): Promise<boolean>
 
 ###### Source
 
-[src/lib/AristonAPI.ts:113](https://github.com/OlivierZal/ariston-api/blob/9ce5f39574da20858e1fd4e2d1ac7f8b062a1afd/src/lib/AristonAPI.ts#L113)
+[src/lib/AristonAPI.ts:113](https://github.com/OlivierZal/ariston-api/blob/51bf61b3544ac1bb07f71bd09dd3ae7cf5601c07/src/lib/AristonAPI.ts#L113)
 
 ##### errors()
 
@@ -127,7 +127,7 @@ errors(id: string): Promise<{
 
 ###### Source
 
-[src/lib/AristonAPI.ts:129](https://github.com/OlivierZal/ariston-api/blob/9ce5f39574da20858e1fd4e2d1ac7f8b062a1afd/src/lib/AristonAPI.ts#L129)
+[src/lib/AristonAPI.ts:129](https://github.com/OlivierZal/ariston-api/blob/51bf61b3544ac1bb07f71bd09dd3ae7cf5601c07/src/lib/AristonAPI.ts#L129)
 
 ##### getDataWithSettings()
 
@@ -155,7 +155,7 @@ getDataWithSettings(id: string): Promise<{
 
 ###### Source
 
-[src/lib/AristonAPI.ts:133](https://github.com/OlivierZal/ariston-api/blob/9ce5f39574da20858e1fd4e2d1ac7f8b062a1afd/src/lib/AristonAPI.ts#L133)
+[src/lib/AristonAPI.ts:133](https://github.com/OlivierZal/ariston-api/blob/51bf61b3544ac1bb07f71bd09dd3ae7cf5601c07/src/lib/AristonAPI.ts#L133)
 
 ##### list()
 
@@ -177,7 +177,7 @@ list(): Promise<{
 
 ###### Source
 
-[src/lib/AristonAPI.ts:142](https://github.com/OlivierZal/ariston-api/blob/9ce5f39574da20858e1fd4e2d1ac7f8b062a1afd/src/lib/AristonAPI.ts#L142)
+[src/lib/AristonAPI.ts:142](https://github.com/OlivierZal/ariston-api/blob/51bf61b3544ac1bb07f71bd09dd3ae7cf5601c07/src/lib/AristonAPI.ts#L142)
 
 ##### login()
 
@@ -205,7 +205,7 @@ login(postData: LoginPostData): Promise<{
 
 ###### Source
 
-[src/lib/AristonAPI.ts:146](https://github.com/OlivierZal/ariston-api/blob/9ce5f39574da20858e1fd4e2d1ac7f8b062a1afd/src/lib/AristonAPI.ts#L146)
+[src/lib/AristonAPI.ts:146](https://github.com/OlivierZal/ariston-api/blob/51bf61b3544ac1bb07f71bd09dd3ae7cf5601c07/src/lib/AristonAPI.ts#L146)
 
 ##### report()
 
@@ -233,7 +233,7 @@ report(id: string): Promise<{
 
 ###### Source
 
-[src/lib/AristonAPI.ts:155](https://github.com/OlivierZal/ariston-api/blob/9ce5f39574da20858e1fd4e2d1ac7f8b062a1afd/src/lib/AristonAPI.ts#L155)
+[src/lib/AristonAPI.ts:155](https://github.com/OlivierZal/ariston-api/blob/51bf61b3544ac1bb07f71bd09dd3ae7cf5601c07/src/lib/AristonAPI.ts#L155)
 
 ##### setData()
 
@@ -262,7 +262,7 @@ setData(id: string, postData: PostData): Promise<{
 
 ###### Source
 
-[src/lib/AristonAPI.ts:159](https://github.com/OlivierZal/ariston-api/blob/9ce5f39574da20858e1fd4e2d1ac7f8b062a1afd/src/lib/AristonAPI.ts#L159)
+[src/lib/AristonAPI.ts:159](https://github.com/OlivierZal/ariston-api/blob/51bf61b3544ac1bb07f71bd09dd3ae7cf5601c07/src/lib/AristonAPI.ts#L159)
 
 ##### setSettings()
 
@@ -291,7 +291,7 @@ setSettings(id: string, settings: PostSettings): Promise<{
 
 ###### Source
 
-[src/lib/AristonAPI.ts:166](https://github.com/OlivierZal/ariston-api/blob/9ce5f39574da20858e1fd4e2d1ac7f8b062a1afd/src/lib/AristonAPI.ts#L166)
+[src/lib/AristonAPI.ts:166](https://github.com/OlivierZal/ariston-api/blob/51bf61b3544ac1bb07f71bd09dd3ae7cf5601c07/src/lib/AristonAPI.ts#L166)
 
 ## Interfaces
 
@@ -604,7 +604,7 @@ type GetData: BaseGetData<null>;
 
 #### Source
 
-[src/types.ts:83](https://github.com/OlivierZal/ariston-api/blob/9ce5f39574da20858e1fd4e2d1ac7f8b062a1afd/src/types.ts#L83)
+[src/types.ts:83](https://github.com/OlivierZal/ariston-api/blob/51bf61b3544ac1bb07f71bd09dd3ae7cf5601c07/src/types.ts#L83)
 
 ***
 
@@ -616,4 +616,4 @@ type GetDataWithSettings: BaseGetData<PlantSettings>;
 
 #### Source
 
-[src/types.ts:85](https://github.com/OlivierZal/ariston-api/blob/9ce5f39574da20858e1fd4e2d1ac7f8b062a1afd/src/types.ts#L85)
+[src/types.ts:85](https://github.com/OlivierZal/ariston-api/blob/51bf61b3544ac1bb07f71bd09dd3ae7cf5601c07/src/types.ts#L85)
