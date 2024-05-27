@@ -7,6 +7,7 @@ import type {
   LoginData,
   LoginPostData,
   Plant,
+  PlantHeader,
   PostData,
   PostSettings,
   ReportData,
@@ -77,7 +78,7 @@ export default class {
   }
 
   private get expires(): string {
-    return this.#expires
+    return this.#settingManager?.get('expires') ?? this.#expires
   }
 
   private set expires(value: string) {
@@ -86,7 +87,7 @@ export default class {
   }
 
   private get password(): string {
-    return this.#password
+    return this.#settingManager?.get('password') ?? this.#password
   }
 
   private set password(value: string) {
@@ -95,7 +96,7 @@ export default class {
   }
 
   private get username(): string {
-    return this.#username
+    return this.#settingManager?.get('username') ?? this.#username
   }
 
   private set username(value: string) {
@@ -119,6 +120,10 @@ export default class {
     return false
   }
 
+  public async errors(id: string): Promise<{ data: PlantHeader }> {
+    return this.#api.get<PlantHeader>(`/R2/Plant/PlantHeader/${id}`)
+  }
+
   public async getDataWithSettings(
     id: string,
   ): Promise<{ data: GetDataWithSettings }> {
@@ -126,6 +131,10 @@ export default class {
       `/R2/PlantHomeSlp/GetData/${id}`,
       { params: { fetchSettings: 'true', fetchTimeProg: 'false' } },
     )
+  }
+
+  public async list(): Promise<{ data: Plant[] }> {
+    return this.#api.get<Plant[]>('/api/v2/velis/plants')
   }
 
   public async login(postData: LoginPostData): Promise<{ data: LoginData }> {
@@ -137,22 +146,8 @@ export default class {
     return response
   }
 
-  public async plantMetering(id: string): Promise<{ data: ReportData }> {
+  public async report(id: string): Promise<{ data: ReportData }> {
     return this.#api.post<ReportData>(`/R2/PlantMetering/GetData/${id}`)
-  }
-
-  public async plantSettings(
-    id: string,
-    settings: PostSettings,
-  ): Promise<{ data: GetSettings }> {
-    return this.#api.post<GetSettings>(
-      `/api/v2/velis/slpPlantData/${id}/PlantSettings`,
-      settings,
-    )
-  }
-
-  public async plants(): Promise<{ data: Plant[] }> {
-    return this.#api.get<Plant[]>('/api/v2/velis/plants')
   }
 
   public async setData(
@@ -160,6 +155,16 @@ export default class {
     postData: PostData,
   ): Promise<{ data: GetData }> {
     return this.#api.post<GetData>(`/R2/PlantHomeSlp/SetData/${id}`, postData)
+  }
+
+  public async setSettings(
+    id: string,
+    settings: PostSettings,
+  ): Promise<{ data: GetSettings }> {
+    return this.#api.post<GetSettings>(
+      `/api/v2/velis/slpPlantData/${id}/PlantSettings`,
+      settings,
+    )
   }
 
   async #handleError(error: AxiosError): Promise<AxiosError> {

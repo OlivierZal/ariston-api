@@ -63,7 +63,6 @@ export interface PostData {
 }
 
 export interface PlantData extends Readonly<Required<PostPlantData>> {
-  readonly procReqTemp: number
   readonly waterTemp: number
 }
 
@@ -102,6 +101,13 @@ export interface PostSettings {
 
 export interface GetSettings {
   readonly success: boolean
+}
+
+export interface PlantHeader {
+  readonly data: {
+    readonly errorText: string | null
+    readonly errorType: number | null
+  }
 }
 
 export interface HistogramData {
