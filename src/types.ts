@@ -78,28 +78,28 @@ export interface Data<T extends PlantSettings | null> {
   readonly plantSettings: T
 }
 
+export interface Success {
+  readonly message: null
+  readonly ok: true
+}
+
+export interface Failure {
+  readonly message: string
+  readonly ok: false
+}
+
 export interface BaseGetData {
   readonly message: string | null
   readonly ok: boolean
 }
 
-export interface GetDataSuccess extends BaseGetData {
-  readonly data: Data<null>
-  readonly ok: true
-}
+export type GetDataSuccess = BaseGetData & Data<null> & Success
 
-export interface GetDataFailure extends BaseGetData {
-  readonly ok: false
-}
+export type GetDataFailure = BaseGetData & Failure
 
-export interface GetDataWithSettingsSuccess extends BaseGetData {
-  readonly data: Data<PlantSettings>
-  readonly ok: true
-}
-
-export interface GetDataWithSettingsFailure extends BaseGetData {
-  readonly ok: false
-}
+export type GetDataWithSettingsSuccess = BaseGetData &
+  Data<PlantSettings> &
+  Success
 
 export interface BasePostSettings<T> {
   readonly new: T

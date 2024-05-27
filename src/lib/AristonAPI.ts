@@ -2,7 +2,6 @@ import { DateTime, Duration } from 'luxon'
 import type {
   GetDataFailure,
   GetDataSuccess,
-  GetDataWithSettingsFailure,
   GetDataWithSettingsSuccess,
   GetSettings,
   LoginCredentials,
@@ -133,13 +132,12 @@ export default class {
   }
 
   public async getDataWithSettings(id: string): Promise<{
-    data: GetDataWithSettingsFailure | GetDataWithSettingsSuccess
+    data: GetDataFailure | GetDataWithSettingsSuccess
   }> {
-    return this.#api.get<
-      GetDataWithSettingsFailure | GetDataWithSettingsSuccess
-    >(`/R2/PlantHomeSlp/GetData/${id}`, {
-      params: { fetchSettings: 'true', fetchTimeProg: 'false' },
-    })
+    return this.#api.get<GetDataFailure | GetDataWithSettingsSuccess>(
+      `/R2/PlantHomeSlp/GetData/${id}`,
+      { params: { fetchSettings: 'true', fetchTimeProg: 'false' } },
+    )
   }
 
   public async list(): Promise<{ data: Plant[] }> {
