@@ -150,10 +150,12 @@ export default class {
   public async login({
     email,
     password,
+    ...rest
   }: LoginPostData): Promise<{ data: LoginData }> {
     const response = await this.#api.post<LoginData>(LOGIN_URL, {
       email,
       password,
+      ...rest,
     })
     if (response.data.ok) {
       this.username = email
