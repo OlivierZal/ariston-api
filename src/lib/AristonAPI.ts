@@ -134,7 +134,7 @@ export default class {
     return this.#api.get<PlantHeader>(`/R2/Plant/PlantHeader/${id}`)
   }
 
-  public async getDataWithSettings(id: string): Promise<{
+  public async get(id: string): Promise<{
     data: GetData<PlantSettings>
   }> {
     return this.#api.get<GetData<PlantSettings>>(
@@ -147,11 +147,17 @@ export default class {
     return this.#api.get<Plant[]>('/api/v2/velis/plants')
   }
 
-  public async login(postData: LoginPostData): Promise<{ data: LoginData }> {
-    const response = await this.#api.post<LoginData>(LOGIN_URL, postData)
+  public async login({
+    email,
+    password,
+  }: LoginPostData): Promise<{ data: LoginData }> {
+    const response = await this.#api.post<LoginData>(LOGIN_URL, {
+      email,
+      password,
+    })
     if (response.data.ok) {
-      this.username = postData.email
-      this.password = postData.password
+      this.username = email
+      this.password = password
     }
     return response
   }
