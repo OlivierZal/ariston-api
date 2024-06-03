@@ -48,7 +48,7 @@
     "@types/luxon": "^3.4.2",
     "@types/node": "^20.12.13",
     "@types/tough-cookie": "^4.0.5",
-    "eslint": "^9.3.0",
+    "eslint": "^9.4.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-import-resolver-typescript": "^3.6.1",
     "eslint-plugin-import": "^2.29.1",
