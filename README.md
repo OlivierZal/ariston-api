@@ -6,10 +6,10 @@
 
 #### Enumeration Members
 
-| Enumeration Member | Value |
-| :------ | :------ |
-| `auto` | `1` |
-| `manual` | `2` |
+| Enumeration Member | Value | Defined in |
+| ------ | ------ | ------ |
+| `auto` | `1` | [src/types.ts:7](https://github.com/OlivierZal/ariston-api/blob/ed50de0056d7782b2f5a16a582ab4c5ee8311035/src/types.ts#L7) |
+| `manual` | `2` | [src/types.ts:8](https://github.com/OlivierZal/ariston-api/blob/ed50de0056d7782b2f5a16a582ab4c5ee8311035/src/types.ts#L8) |
 
 ***
 
@@ -17,12 +17,12 @@
 
 #### Enumeration Members
 
-| Enumeration Member | Value |
-| :------ | :------ |
-| `auto` | `3` |
-| `comfort` | `1` |
-| `fast` | `2` |
-| `green` | `0` |
+| Enumeration Member | Value | Defined in |
+| ------ | ------ | ------ |
+| `auto` | `3` | [src/types.ts:15](https://github.com/OlivierZal/ariston-api/blob/ed50de0056d7782b2f5a16a582ab4c5ee8311035/src/types.ts#L15) |
+| `comfort` | `1` | [src/types.ts:13](https://github.com/OlivierZal/ariston-api/blob/ed50de0056d7782b2f5a16a582ab4c5ee8311035/src/types.ts#L13) |
+| `fast` | `2` | [src/types.ts:14](https://github.com/OlivierZal/ariston-api/blob/ed50de0056d7782b2f5a16a582ab4c5ee8311035/src/types.ts#L14) |
+| `green` | `0` | [src/types.ts:12](https://github.com/OlivierZal/ariston-api/blob/ed50de0056d7782b2f5a16a582ab4c5ee8311035/src/types.ts#L12) |
 
 ***
 
@@ -30,10 +30,10 @@
 
 #### Enumeration Members
 
-| Enumeration Member | Value |
-| :------ | :------ |
-| `off` | `0` |
-| `on` | `1` |
+| Enumeration Member | Value | Defined in |
+| ------ | ------ | ------ |
+| `off` | `0` | [src/types.ts:19](https://github.com/OlivierZal/ariston-api/blob/ed50de0056d7782b2f5a16a582ab4c5ee8311035/src/types.ts#L19) |
+| `on` | `1` | [src/types.ts:20](https://github.com/OlivierZal/ariston-api/blob/ed50de0056d7782b2f5a16a582ab4c5ee8311035/src/types.ts#L20) |
 
 ***
 
@@ -41,10 +41,10 @@
 
 #### Enumeration Members
 
-| Enumeration Member | Value |
-| :------ | :------ |
-| `lydos` | `3` |
-| `nuos` | `4` |
+| Enumeration Member | Value | Defined in |
+| ------ | ------ | ------ |
+| `lydos` | `3` | [src/types.ts:2](https://github.com/OlivierZal/ariston-api/blob/ed50de0056d7782b2f5a16a582ab4c5ee8311035/src/types.ts#L2) |
+| `nuos` | `4` | [src/types.ts:3](https://github.com/OlivierZal/ariston-api/blob/ed50de0056d7782b2f5a16a582ab4c5ee8311035/src/types.ts#L3) |
 
 ## Classes
 
@@ -65,7 +65,7 @@ new default(config: {
 ###### Parameters
 
 | Parameter | Type |
-| :------ | :------ |
+| ------ | ------ |
 | `config` | `object` |
 | `config.language`? | `string` |
 | `config.logger`? | [`Logger`](README.md#logger) |
@@ -75,9 +75,9 @@ new default(config: {
 
 [`default`](README.md#default)
 
-###### Source
+###### Defined in
 
-[src/lib/AristonAPI.ts:66](https://github.com/OlivierZal/ariston-api/blob/6b95adea94b34cf1e7dbf8822700ccb86521fec0/src/lib/AristonAPI.ts#L66)
+[src/lib/AristonAPI.ts:66](https://github.com/OlivierZal/ariston-api/blob/ed50de0056d7782b2f5a16a582ab4c5ee8311035/src/lib/AristonAPI.ts#L66)
 
 #### Methods
 
@@ -90,16 +90,16 @@ applyLogin(data?: LoginCredentials): Promise<boolean>
 ###### Parameters
 
 | Parameter | Type |
-| :------ | :------ |
+| ------ | ------ |
 | `data`? | [`LoginCredentials`](README.md#logincredentials) |
 
 ###### Returns
 
 `Promise`\<`boolean`\>
 
-###### Source
+###### Defined in
 
-[src/lib/AristonAPI.ts:113](https://github.com/OlivierZal/ariston-api/blob/6b95adea94b34cf1e7dbf8822700ccb86521fec0/src/lib/AristonAPI.ts#L113)
+[src/lib/AristonAPI.ts:113](https://github.com/OlivierZal/ariston-api/blob/ed50de0056d7782b2f5a16a582ab4c5ee8311035/src/lib/AristonAPI.ts#L113)
 
 ##### errors()
 
@@ -112,7 +112,7 @@ errors(id: string): Promise<{
 ###### Parameters
 
 | Parameter | Type |
-| :------ | :------ |
+| ------ | ------ |
 | `id` | `string` |
 
 ###### Returns
@@ -121,13 +121,13 @@ errors(id: string): Promise<{
   `data`: [`PlantHeader`](README.md#plantheader);
  \}\>
 
-| Member | Type |
-| :------ | :------ |
-| `data` | [`PlantHeader`](README.md#plantheader) |
+| Name | Type | Defined in |
+| ------ | ------ | ------ |
+| `data` | [`PlantHeader`](README.md#plantheader) | [src/lib/AristonAPI.ts:133](https://github.com/OlivierZal/ariston-api/blob/ed50de0056d7782b2f5a16a582ab4c5ee8311035/src/lib/AristonAPI.ts#L133) |
 
-###### Source
+###### Defined in
 
-[src/lib/AristonAPI.ts:133](https://github.com/OlivierZal/ariston-api/blob/6b95adea94b34cf1e7dbf8822700ccb86521fec0/src/lib/AristonAPI.ts#L133)
+[src/lib/AristonAPI.ts:133](https://github.com/OlivierZal/ariston-api/blob/ed50de0056d7782b2f5a16a582ab4c5ee8311035/src/lib/AristonAPI.ts#L133)
 
 ##### get()
 
@@ -140,7 +140,7 @@ get(id: string): Promise<{
 ###### Parameters
 
 | Parameter | Type |
-| :------ | :------ |
+| ------ | ------ |
 | `id` | `string` |
 
 ###### Returns
@@ -149,13 +149,13 @@ get(id: string): Promise<{
   `data`: [`GetData`](README.md#getdatat)\<[`PlantSettings`](README.md#plantsettings)\>;
  \}\>
 
-| Member | Type |
-| :------ | :------ |
-| `data` | [`GetData`](README.md#getdatat)\<[`PlantSettings`](README.md#plantsettings)\> |
+| Name | Type | Defined in |
+| ------ | ------ | ------ |
+| `data` | [`GetData`](README.md#getdatat)\<[`PlantSettings`](README.md#plantsettings)\> | [src/lib/AristonAPI.ts:138](https://github.com/OlivierZal/ariston-api/blob/ed50de0056d7782b2f5a16a582ab4c5ee8311035/src/lib/AristonAPI.ts#L138) |
 
-###### Source
+###### Defined in
 
-[src/lib/AristonAPI.ts:137](https://github.com/OlivierZal/ariston-api/blob/6b95adea94b34cf1e7dbf8822700ccb86521fec0/src/lib/AristonAPI.ts#L137)
+[src/lib/AristonAPI.ts:137](https://github.com/OlivierZal/ariston-api/blob/ed50de0056d7782b2f5a16a582ab4c5ee8311035/src/lib/AristonAPI.ts#L137)
 
 ##### list()
 
@@ -171,13 +171,13 @@ list(): Promise<{
   `data`: [`Plant`](README.md#plant)[];
  \}\>
 
-| Member | Type |
-| :------ | :------ |
-| `data` | [`Plant`](README.md#plant)[] |
+| Name | Type | Defined in |
+| ------ | ------ | ------ |
+| `data` | [`Plant`](README.md#plant)[] | [src/lib/AristonAPI.ts:146](https://github.com/OlivierZal/ariston-api/blob/ed50de0056d7782b2f5a16a582ab4c5ee8311035/src/lib/AristonAPI.ts#L146) |
 
-###### Source
+###### Defined in
 
-[src/lib/AristonAPI.ts:146](https://github.com/OlivierZal/ariston-api/blob/6b95adea94b34cf1e7dbf8822700ccb86521fec0/src/lib/AristonAPI.ts#L146)
+[src/lib/AristonAPI.ts:146](https://github.com/OlivierZal/ariston-api/blob/ed50de0056d7782b2f5a16a582ab4c5ee8311035/src/lib/AristonAPI.ts#L146)
 
 ##### login()
 
@@ -190,7 +190,7 @@ login(__namedParameters: LoginPostData): Promise<{
 ###### Parameters
 
 | Parameter | Type |
-| :------ | :------ |
+| ------ | ------ |
 | `__namedParameters` | [`LoginPostData`](README.md#loginpostdata) |
 
 ###### Returns
@@ -199,13 +199,13 @@ login(__namedParameters: LoginPostData): Promise<{
   `data`: [`LoginData`](README.md#logindata);
  \}\>
 
-| Member | Type |
-| :------ | :------ |
-| `data` | [`LoginData`](README.md#logindata) |
+| Name | Type | Defined in |
+| ------ | ------ | ------ |
+| `data` | [`LoginData`](README.md#logindata) | [src/lib/AristonAPI.ts:154](https://github.com/OlivierZal/ariston-api/blob/ed50de0056d7782b2f5a16a582ab4c5ee8311035/src/lib/AristonAPI.ts#L154) |
 
-###### Source
+###### Defined in
 
-[src/lib/AristonAPI.ts:150](https://github.com/OlivierZal/ariston-api/blob/6b95adea94b34cf1e7dbf8822700ccb86521fec0/src/lib/AristonAPI.ts#L150)
+[src/lib/AristonAPI.ts:150](https://github.com/OlivierZal/ariston-api/blob/ed50de0056d7782b2f5a16a582ab4c5ee8311035/src/lib/AristonAPI.ts#L150)
 
 ##### report()
 
@@ -218,7 +218,7 @@ report(id: string): Promise<{
 ###### Parameters
 
 | Parameter | Type |
-| :------ | :------ |
+| ------ | ------ |
 | `id` | `string` |
 
 ###### Returns
@@ -227,13 +227,13 @@ report(id: string): Promise<{
   `data`: [`ReportData`](README.md#reportdata);
  \}\>
 
-| Member | Type |
-| :------ | :------ |
-| `data` | [`ReportData`](README.md#reportdata) |
+| Name | Type | Defined in |
+| ------ | ------ | ------ |
+| `data` | [`ReportData`](README.md#reportdata) | [src/lib/AristonAPI.ts:167](https://github.com/OlivierZal/ariston-api/blob/ed50de0056d7782b2f5a16a582ab4c5ee8311035/src/lib/AristonAPI.ts#L167) |
 
-###### Source
+###### Defined in
 
-[src/lib/AristonAPI.ts:167](https://github.com/OlivierZal/ariston-api/blob/6b95adea94b34cf1e7dbf8822700ccb86521fec0/src/lib/AristonAPI.ts#L167)
+[src/lib/AristonAPI.ts:167](https://github.com/OlivierZal/ariston-api/blob/ed50de0056d7782b2f5a16a582ab4c5ee8311035/src/lib/AristonAPI.ts#L167)
 
 ##### setData()
 
@@ -246,7 +246,7 @@ setData(id: string, postData: PostData): Promise<{
 ###### Parameters
 
 | Parameter | Type |
-| :------ | :------ |
+| ------ | ------ |
 | `id` | `string` |
 | `postData` | [`PostData`](README.md#postdata) |
 
@@ -256,13 +256,13 @@ setData(id: string, postData: PostData): Promise<{
   `data`: [`GetData`](README.md#getdatat)\<`null`\>;
  \}\>
 
-| Member | Type |
-| :------ | :------ |
-| `data` | [`GetData`](README.md#getdatat)\<`null`\> |
+| Name | Type | Defined in |
+| ------ | ------ | ------ |
+| `data` | [`GetData`](README.md#getdatat)\<`null`\> | [src/lib/AristonAPI.ts:174](https://github.com/OlivierZal/ariston-api/blob/ed50de0056d7782b2f5a16a582ab4c5ee8311035/src/lib/AristonAPI.ts#L174) |
 
-###### Source
+###### Defined in
 
-[src/lib/AristonAPI.ts:171](https://github.com/OlivierZal/ariston-api/blob/6b95adea94b34cf1e7dbf8822700ccb86521fec0/src/lib/AristonAPI.ts#L171)
+[src/lib/AristonAPI.ts:171](https://github.com/OlivierZal/ariston-api/blob/ed50de0056d7782b2f5a16a582ab4c5ee8311035/src/lib/AristonAPI.ts#L171)
 
 ##### setSettings()
 
@@ -275,7 +275,7 @@ setSettings(id: string, settings: PostSettings): Promise<{
 ###### Parameters
 
 | Parameter | Type |
-| :------ | :------ |
+| ------ | ------ |
 | `id` | `string` |
 | `settings` | [`PostSettings`](README.md#postsettings) |
 
@@ -285,13 +285,13 @@ setSettings(id: string, settings: PostSettings): Promise<{
   `data`: [`GetSettings`](README.md#getsettings);
  \}\>
 
-| Member | Type |
-| :------ | :------ |
-| `data` | [`GetSettings`](README.md#getsettings) |
+| Name | Type | Defined in |
+| ------ | ------ | ------ |
+| `data` | [`GetSettings`](README.md#getsettings) | [src/lib/AristonAPI.ts:184](https://github.com/OlivierZal/ariston-api/blob/ed50de0056d7782b2f5a16a582ab4c5ee8311035/src/lib/AristonAPI.ts#L184) |
 
-###### Source
+###### Defined in
 
-[src/lib/AristonAPI.ts:181](https://github.com/OlivierZal/ariston-api/blob/6b95adea94b34cf1e7dbf8822700ccb86521fec0/src/lib/AristonAPI.ts#L181)
+[src/lib/AristonAPI.ts:181](https://github.com/OlivierZal/ariston-api/blob/ed50de0056d7782b2f5a16a582ab4c5ee8311035/src/lib/AristonAPI.ts#L181)
 
 ## Interfaces
 
@@ -299,11 +299,11 @@ setSettings(id: string, settings: PostSettings): Promise<{
 
 #### Properties
 
-| Property | Modifier | Type |
-| :------ | :------ | :------ |
-| `expires?` | `readonly` | `null` \| `string` |
-| `password?` | `readonly` | `null` \| `string` |
-| `username?` | `readonly` | `null` \| `string` |
+| Property | Modifier | Type | Defined in |
+| ------ | ------ | ------ | ------ |
+| `expires?` | `readonly` | `null` \| `string` | [src/lib/AristonAPI.ts:28](https://github.com/OlivierZal/ariston-api/blob/ed50de0056d7782b2f5a16a582ab4c5ee8311035/src/lib/AristonAPI.ts#L28) |
+| `password?` | `readonly` | `null` \| `string` | [src/lib/AristonAPI.ts:29](https://github.com/OlivierZal/ariston-api/blob/ed50de0056d7782b2f5a16a582ab4c5ee8311035/src/lib/AristonAPI.ts#L29) |
+| `username?` | `readonly` | `null` \| `string` | [src/lib/AristonAPI.ts:30](https://github.com/OlivierZal/ariston-api/blob/ed50de0056d7782b2f5a16a582ab4c5ee8311035/src/lib/AristonAPI.ts#L30) |
 
 ***
 
@@ -316,14 +316,14 @@ setSettings(id: string, settings: PostSettings): Promise<{
 
 #### Properties
 
-| Property | Type |
-| :------ | :------ |
-| `boostOn?` | `boolean` |
-| `comfortTemp?` | `number` |
-| `holidayUntil?` | `null` \| `string` |
-| `hpState?` | `number` |
-| `on?` | `boolean` |
-| `opMode?` | [`OperationMode`](README.md#operationmode) |
+| Property | Type | Defined in |
+| ------ | ------ | ------ |
+| `boostOn?` | `boolean` | [src/types.ts:53](https://github.com/OlivierZal/ariston-api/blob/ed50de0056d7782b2f5a16a582ab4c5ee8311035/src/types.ts#L53) |
+| `comfortTemp?` | `number` | [src/types.ts:54](https://github.com/OlivierZal/ariston-api/blob/ed50de0056d7782b2f5a16a582ab4c5ee8311035/src/types.ts#L54) |
+| `holidayUntil?` | `null` \| `string` | [src/types.ts:55](https://github.com/OlivierZal/ariston-api/blob/ed50de0056d7782b2f5a16a582ab4c5ee8311035/src/types.ts#L55) |
+| `hpState?` | `number` | [src/types.ts:56](https://github.com/OlivierZal/ariston-api/blob/ed50de0056d7782b2f5a16a582ab4c5ee8311035/src/types.ts#L56) |
+| `on?` | `boolean` | [src/types.ts:57](https://github.com/OlivierZal/ariston-api/blob/ed50de0056d7782b2f5a16a582ab4c5ee8311035/src/types.ts#L57) |
+| `opMode?` | [`OperationMode`](README.md#operationmode) | [src/types.ts:58](https://github.com/OlivierZal/ariston-api/blob/ed50de0056d7782b2f5a16a582ab4c5ee8311035/src/types.ts#L58) |
 
 ***
 
@@ -333,17 +333,17 @@ setSettings(id: string, settings: PostSettings): Promise<{
 
 - [`BasePostSettingsWithOld`](README.md#basepostsettingswitholdt)
 
-#### Type parameters
+#### Type Parameters
 
-| Type parameter |
-| :------ |
+| Type Parameter |
+| ------ |
 | `T` |
 
 #### Properties
 
-| Property | Modifier | Type |
-| :------ | :------ | :------ |
-| `new` | `readonly` | `T` |
+| Property | Modifier | Type | Defined in |
+| ------ | ------ | ------ | ------ |
+| `new` | `readonly` | `T` | [src/types.ts:95](https://github.com/OlivierZal/ariston-api/blob/ed50de0056d7782b2f5a16a582ab4c5ee8311035/src/types.ts#L95) |
 
 ***
 
@@ -353,18 +353,18 @@ setSettings(id: string, settings: PostSettings): Promise<{
 
 - [`BasePostSettings`](README.md#basepostsettingst)\<`T`\>
 
-#### Type parameters
+#### Type Parameters
 
-| Type parameter |
-| :------ |
+| Type Parameter |
+| ------ |
 | `T` |
 
 #### Properties
 
-| Property | Modifier | Type | Inherited from |
-| :------ | :------ | :------ | :------ |
-| `new` | `readonly` | `T` | [`BasePostSettings`](README.md#basepostsettingst).`new` |
-| `old` | `readonly` | `T` | - |
+| Property | Modifier | Type | Inherited from | Defined in |
+| ------ | ------ | ------ | ------ | ------ |
+| `new` | `readonly` | `T` | [`BasePostSettings`](README.md#basepostsettingst).`new` | [src/types.ts:95](https://github.com/OlivierZal/ariston-api/blob/ed50de0056d7782b2f5a16a582ab4c5ee8311035/src/types.ts#L95) |
+| `old` | `readonly` | `T` | - | [src/types.ts:99](https://github.com/OlivierZal/ariston-api/blob/ed50de0056d7782b2f5a16a582ab4c5ee8311035/src/types.ts#L99) |
 
 ***
 
@@ -372,10 +372,10 @@ setSettings(id: string, settings: PostSettings): Promise<{
 
 #### Properties
 
-| Property | Modifier | Type |
-| :------ | :------ | :------ |
-| `message` | `readonly` | `string` |
-| `ok` | `readonly` | `false` |
+| Property | Modifier | Type | Defined in |
+| ------ | ------ | ------ | ------ |
+| `message` | `readonly` | `string` | [src/types.ts:29](https://github.com/OlivierZal/ariston-api/blob/ed50de0056d7782b2f5a16a582ab4c5ee8311035/src/types.ts#L29) |
+| `ok` | `readonly` | `false` | [src/types.ts:30](https://github.com/OlivierZal/ariston-api/blob/ed50de0056d7782b2f5a16a582ab4c5ee8311035/src/types.ts#L30) |
 
 ***
 
@@ -383,9 +383,9 @@ setSettings(id: string, settings: PostSettings): Promise<{
 
 #### Properties
 
-| Property | Modifier | Type |
-| :------ | :------ | :------ |
-| `success` | `readonly` | `boolean` |
+| Property | Modifier | Type | Defined in |
+| ------ | ------ | ------ | ------ |
+| `success` | `readonly` | `boolean` | [src/types.ts:110](https://github.com/OlivierZal/ariston-api/blob/ed50de0056d7782b2f5a16a582ab4c5ee8311035/src/types.ts#L110) |
 
 ***
 
@@ -393,12 +393,12 @@ setSettings(id: string, settings: PostSettings): Promise<{
 
 #### Properties
 
-| Property | Modifier | Type |
-| :------ | :------ | :------ |
-| `items` | `readonly` | readonly \{ `x`: `string`; `y`: `number`; \}[] |
-| `period` | `readonly` | `string` |
-| `series` | `readonly` | `"DhwHp"` \| `"DhwResistor"` |
-| `tab` | `readonly` | `string` |
+| Property | Modifier | Type | Defined in |
+| ------ | ------ | ------ | ------ |
+| `items` | `readonly` | readonly \{ `x`: `string`; `y`: `number`; \}[] | [src/types.ts:121](https://github.com/OlivierZal/ariston-api/blob/ed50de0056d7782b2f5a16a582ab4c5ee8311035/src/types.ts#L121) |
+| `period` | `readonly` | `string` | [src/types.ts:122](https://github.com/OlivierZal/ariston-api/blob/ed50de0056d7782b2f5a16a582ab4c5ee8311035/src/types.ts#L122) |
+| `series` | `readonly` | `"DhwHp"` \| `"DhwResistor"` | [src/types.ts:123](https://github.com/OlivierZal/ariston-api/blob/ed50de0056d7782b2f5a16a582ab4c5ee8311035/src/types.ts#L123) |
+| `tab` | `readonly` | `string` | [src/types.ts:124](https://github.com/OlivierZal/ariston-api/blob/ed50de0056d7782b2f5a16a582ab4c5ee8311035/src/types.ts#L124) |
 
 ***
 
@@ -406,10 +406,10 @@ setSettings(id: string, settings: PostSettings): Promise<{
 
 #### Properties
 
-| Property | Modifier | Type |
-| :------ | :------ | :------ |
-| `error` | `readonly` | (...`data`: `any`[]) => `void`(`message`?: `any`, ...`optionalParams`: `any`[]) => `void` |
-| `log` | `readonly` | (...`data`: `any`[]) => `void`(`message`?: `any`, ...`optionalParams`: `any`[]) => `void` |
+| Property | Modifier | Type | Defined in |
+| ------ | ------ | ------ | ------ |
+| `error` | `readonly` | (...`data`: `any`[]) => `void`(`message`?: `any`, ...`optionalParams`: `any`[]) => `void` | [src/lib/AristonAPI.ts:34](https://github.com/OlivierZal/ariston-api/blob/ed50de0056d7782b2f5a16a582ab4c5ee8311035/src/lib/AristonAPI.ts#L34) |
+| `log` | `readonly` | (...`data`: `any`[]) => `void`(`message`?: `any`, ...`optionalParams`: `any`[]) => `void` | [src/lib/AristonAPI.ts:35](https://github.com/OlivierZal/ariston-api/blob/ed50de0056d7782b2f5a16a582ab4c5ee8311035/src/lib/AristonAPI.ts#L35) |
 
 ***
 
@@ -417,10 +417,10 @@ setSettings(id: string, settings: PostSettings): Promise<{
 
 #### Properties
 
-| Property | Modifier | Type |
-| :------ | :------ | :------ |
-| `password` | `readonly` | `string` |
-| `username` | `readonly` | `string` |
+| Property | Modifier | Type | Defined in |
+| ------ | ------ | ------ | ------ |
+| `password` | `readonly` | `string` | [src/types.ts:34](https://github.com/OlivierZal/ariston-api/blob/ed50de0056d7782b2f5a16a582ab4c5ee8311035/src/types.ts#L34) |
+| `username` | `readonly` | `string` | [src/types.ts:35](https://github.com/OlivierZal/ariston-api/blob/ed50de0056d7782b2f5a16a582ab4c5ee8311035/src/types.ts#L35) |
 
 ***
 
@@ -428,11 +428,11 @@ setSettings(id: string, settings: PostSettings): Promise<{
 
 #### Properties
 
-| Property | Modifier | Type |
-| :------ | :------ | :------ |
-| `email` | `readonly` | `string` |
-| `password` | `readonly` | `string` |
-| `rememberMe` | `readonly` | `true` |
+| Property | Modifier | Type | Defined in |
+| ------ | ------ | ------ | ------ |
+| `email` | `readonly` | `string` | [src/types.ts:39](https://github.com/OlivierZal/ariston-api/blob/ed50de0056d7782b2f5a16a582ab4c5ee8311035/src/types.ts#L39) |
+| `password` | `readonly` | `string` | [src/types.ts:40](https://github.com/OlivierZal/ariston-api/blob/ed50de0056d7782b2f5a16a582ab4c5ee8311035/src/types.ts#L40) |
+| `rememberMe` | `readonly` | `true` | [src/types.ts:41](https://github.com/OlivierZal/ariston-api/blob/ed50de0056d7782b2f5a16a582ab4c5ee8311035/src/types.ts#L41) |
 
 ***
 
@@ -440,11 +440,11 @@ setSettings(id: string, settings: PostSettings): Promise<{
 
 #### Properties
 
-| Property | Modifier | Type |
-| :------ | :------ | :------ |
-| `gw` | `readonly` | `string` |
-| `name` | `readonly` | `string` |
-| `wheType` | `readonly` | [`WheType`](README.md#whetype) |
+| Property | Modifier | Type | Defined in |
+| ------ | ------ | ------ | ------ |
+| `gw` | `readonly` | `string` | [src/types.ts:47](https://github.com/OlivierZal/ariston-api/blob/ed50de0056d7782b2f5a16a582ab4c5ee8311035/src/types.ts#L47) |
+| `name` | `readonly` | `string` | [src/types.ts:48](https://github.com/OlivierZal/ariston-api/blob/ed50de0056d7782b2f5a16a582ab4c5ee8311035/src/types.ts#L48) |
+| `wheType` | `readonly` | [`WheType`](README.md#whetype) | [src/types.ts:49](https://github.com/OlivierZal/ariston-api/blob/ed50de0056d7782b2f5a16a582ab4c5ee8311035/src/types.ts#L49) |
 
 ***
 
@@ -456,16 +456,16 @@ setSettings(id: string, settings: PostSettings): Promise<{
 
 #### Properties
 
-| Property | Modifier | Type | Inherited from |
-| :------ | :------ | :------ | :------ |
-| `boostOn` | `readonly` | `boolean` | `Readonly.boostOn` |
-| `comfortTemp` | `readonly` | `number` | `Readonly.comfortTemp` |
-| `holidayUntil` | `readonly` | `null` \| `string` | `Readonly.holidayUntil` |
-| `hpState` | `readonly` | `number` | `Readonly.hpState` |
-| `mode` | `readonly` | [`Mode`](README.md#mode) | `Readonly.mode` |
-| `on` | `readonly` | `boolean` | `Readonly.on` |
-| `opMode` | `readonly` | [`OperationMode`](README.md#operationmode) | `Readonly.opMode` |
-| `waterTemp` | `readonly` | `number` | - |
+| Property | Modifier | Type | Inherited from | Defined in |
+| ------ | ------ | ------ | ------ | ------ |
+| `boostOn` | `readonly` | `boolean` | `Readonly.boostOn` | [src/types.ts:53](https://github.com/OlivierZal/ariston-api/blob/ed50de0056d7782b2f5a16a582ab4c5ee8311035/src/types.ts#L53) |
+| `comfortTemp` | `readonly` | `number` | `Readonly.comfortTemp` | [src/types.ts:54](https://github.com/OlivierZal/ariston-api/blob/ed50de0056d7782b2f5a16a582ab4c5ee8311035/src/types.ts#L54) |
+| `holidayUntil` | `readonly` | `null` \| `string` | `Readonly.holidayUntil` | [src/types.ts:55](https://github.com/OlivierZal/ariston-api/blob/ed50de0056d7782b2f5a16a582ab4c5ee8311035/src/types.ts#L55) |
+| `hpState` | `readonly` | `number` | `Readonly.hpState` | [src/types.ts:56](https://github.com/OlivierZal/ariston-api/blob/ed50de0056d7782b2f5a16a582ab4c5ee8311035/src/types.ts#L56) |
+| `mode` | `readonly` | [`Mode`](README.md#mode) | `Readonly.mode` | [src/types.ts:62](https://github.com/OlivierZal/ariston-api/blob/ed50de0056d7782b2f5a16a582ab4c5ee8311035/src/types.ts#L62) |
+| `on` | `readonly` | `boolean` | `Readonly.on` | [src/types.ts:57](https://github.com/OlivierZal/ariston-api/blob/ed50de0056d7782b2f5a16a582ab4c5ee8311035/src/types.ts#L57) |
+| `opMode` | `readonly` | [`OperationMode`](README.md#operationmode) | `Readonly.opMode` | [src/types.ts:58](https://github.com/OlivierZal/ariston-api/blob/ed50de0056d7782b2f5a16a582ab4c5ee8311035/src/types.ts#L58) |
+| `waterTemp` | `readonly` | `number` | - | [src/types.ts:75](https://github.com/OlivierZal/ariston-api/blob/ed50de0056d7782b2f5a16a582ab4c5ee8311035/src/types.ts#L75) |
 
 ***
 
@@ -473,11 +473,11 @@ setSettings(id: string, settings: PostSettings): Promise<{
 
 #### Properties
 
-| Property | Modifier | Type |
-| :------ | :------ | :------ |
-| `data` | `readonly` | \{ `errorText`: `string`; `errorType`: `number`; \} |
-| `data.errorText` | `public` | `string` |
-| `data.errorType` | `public` | `number` |
+| Property | Modifier | Type | Defined in |
+| ------ | ------ | ------ | ------ |
+| `data` | `readonly` | \{ `errorText`: `string`; `errorType`: `number`; \} | [src/types.ts:114](https://github.com/OlivierZal/ariston-api/blob/ed50de0056d7782b2f5a16a582ab4c5ee8311035/src/types.ts#L114) |
+| `data.errorText` | `readonly` | `string` | [src/types.ts:115](https://github.com/OlivierZal/ariston-api/blob/ed50de0056d7782b2f5a16a582ab4c5ee8311035/src/types.ts#L115) |
+| `data.errorType` | `readonly` | `number` | [src/types.ts:116](https://github.com/OlivierZal/ariston-api/blob/ed50de0056d7782b2f5a16a582ab4c5ee8311035/src/types.ts#L116) |
 
 ***
 
@@ -485,14 +485,14 @@ setSettings(id: string, settings: PostSettings): Promise<{
 
 #### Properties
 
-| Property | Modifier | Type |
-| :------ | :------ | :------ |
-| `antilegionellaOnOff` | `readonly` | `boolean` |
-| `maxSetpointTemp` | `readonly` | \{ `value`: `number`; \} |
-| `maxSetpointTemp.value` | `readonly` | `number` |
-| `minSetpointTemp` | `readonly` | \{ `value`: `number`; \} |
-| `minSetpointTemp.value` | `public` | `number` |
-| `preHeatingOnOff` | `public` | `boolean` |
+| Property | Modifier | Type | Defined in |
+| ------ | ------ | ------ | ------ |
+| `antilegionellaOnOff` | `readonly` | `boolean` | [src/types.ts:79](https://github.com/OlivierZal/ariston-api/blob/ed50de0056d7782b2f5a16a582ab4c5ee8311035/src/types.ts#L79) |
+| `maxSetpointTemp` | `readonly` | \{ `value`: `number`; \} | [src/types.ts:80](https://github.com/OlivierZal/ariston-api/blob/ed50de0056d7782b2f5a16a582ab4c5ee8311035/src/types.ts#L80) |
+| `maxSetpointTemp.value` | `public` | `number` | [src/types.ts:80](https://github.com/OlivierZal/ariston-api/blob/ed50de0056d7782b2f5a16a582ab4c5ee8311035/src/types.ts#L80) |
+| `minSetpointTemp` | `readonly` | \{ `value`: `number`; \} | [src/types.ts:81](https://github.com/OlivierZal/ariston-api/blob/ed50de0056d7782b2f5a16a582ab4c5ee8311035/src/types.ts#L81) |
+| `minSetpointTemp.value` | `public` | `number` | [src/types.ts:81](https://github.com/OlivierZal/ariston-api/blob/ed50de0056d7782b2f5a16a582ab4c5ee8311035/src/types.ts#L81) |
+| `preHeatingOnOff` | `readonly` | `boolean` | [src/types.ts:82](https://github.com/OlivierZal/ariston-api/blob/ed50de0056d7782b2f5a16a582ab4c5ee8311035/src/types.ts#L82) |
 
 ***
 
@@ -500,10 +500,10 @@ setSettings(id: string, settings: PostSettings): Promise<{
 
 #### Properties
 
-| Property | Modifier | Type |
-| :------ | :------ | :------ |
-| `plantData` | `readonly` | [`PostPlantData`](README.md#postplantdata) |
-| `viewModel` | `readonly` | [`ViewModel`](README.md#viewmodel) |
+| Property | Modifier | Type | Defined in |
+| ------ | ------ | ------ | ------ |
+| `plantData` | `readonly` | [`PostPlantData`](README.md#postplantdata) | [src/types.ts:70](https://github.com/OlivierZal/ariston-api/blob/ed50de0056d7782b2f5a16a582ab4c5ee8311035/src/types.ts#L70) |
+| `viewModel` | `readonly` | [`ViewModel`](README.md#viewmodel) | [src/types.ts:71](https://github.com/OlivierZal/ariston-api/blob/ed50de0056d7782b2f5a16a582ab4c5ee8311035/src/types.ts#L71) |
 
 ***
 
@@ -515,15 +515,15 @@ setSettings(id: string, settings: PostSettings): Promise<{
 
 #### Properties
 
-| Property | Type | Inherited from |
-| :------ | :------ | :------ |
-| `boostOn?` | `boolean` | [`BasePlantData`](README.md#baseplantdata).`boostOn` |
-| `comfortTemp?` | `number` | [`BasePlantData`](README.md#baseplantdata).`comfortTemp` |
-| `holidayUntil?` | `null` \| `string` | [`BasePlantData`](README.md#baseplantdata).`holidayUntil` |
-| `hpState?` | `number` | [`BasePlantData`](README.md#baseplantdata).`hpState` |
-| `mode?` | [`Mode`](README.md#mode) | - |
-| `on?` | `boolean` | [`BasePlantData`](README.md#baseplantdata).`on` |
-| `opMode?` | [`OperationMode`](README.md#operationmode) | [`BasePlantData`](README.md#baseplantdata).`opMode` |
+| Property | Type | Inherited from | Defined in |
+| ------ | ------ | ------ | ------ |
+| `boostOn?` | `boolean` | [`BasePlantData`](README.md#baseplantdata).`boostOn` | [src/types.ts:53](https://github.com/OlivierZal/ariston-api/blob/ed50de0056d7782b2f5a16a582ab4c5ee8311035/src/types.ts#L53) |
+| `comfortTemp?` | `number` | [`BasePlantData`](README.md#baseplantdata).`comfortTemp` | [src/types.ts:54](https://github.com/OlivierZal/ariston-api/blob/ed50de0056d7782b2f5a16a582ab4c5ee8311035/src/types.ts#L54) |
+| `holidayUntil?` | `null` \| `string` | [`BasePlantData`](README.md#baseplantdata).`holidayUntil` | [src/types.ts:55](https://github.com/OlivierZal/ariston-api/blob/ed50de0056d7782b2f5a16a582ab4c5ee8311035/src/types.ts#L55) |
+| `hpState?` | `number` | [`BasePlantData`](README.md#baseplantdata).`hpState` | [src/types.ts:56](https://github.com/OlivierZal/ariston-api/blob/ed50de0056d7782b2f5a16a582ab4c5ee8311035/src/types.ts#L56) |
+| `mode?` | [`Mode`](README.md#mode) | - | [src/types.ts:62](https://github.com/OlivierZal/ariston-api/blob/ed50de0056d7782b2f5a16a582ab4c5ee8311035/src/types.ts#L62) |
+| `on?` | `boolean` | [`BasePlantData`](README.md#baseplantdata).`on` | [src/types.ts:57](https://github.com/OlivierZal/ariston-api/blob/ed50de0056d7782b2f5a16a582ab4c5ee8311035/src/types.ts#L57) |
+| `opMode?` | [`OperationMode`](README.md#operationmode) | [`BasePlantData`](README.md#baseplantdata).`opMode` | [src/types.ts:58](https://github.com/OlivierZal/ariston-api/blob/ed50de0056d7782b2f5a16a582ab4c5ee8311035/src/types.ts#L58) |
 
 ***
 
@@ -531,12 +531,12 @@ setSettings(id: string, settings: PostSettings): Promise<{
 
 #### Properties
 
-| Property | Type |
-| :------ | :------ |
-| `SlpAntilegionellaOnOff?` | [`BasePostSettingsWithOld`](README.md#basepostsettingswitholdt)\<[`Switch`](README.md#switch)\> |
-| `SlpMaxSetpointTemperature?` | [`BasePostSettings`](README.md#basepostsettingst)\<`number`\> |
-| `SlpMinSetpointTemperature?` | [`BasePostSettings`](README.md#basepostsettingst)\<`number`\> |
-| `SlpPreHeatingOnOff?` | [`BasePostSettingsWithOld`](README.md#basepostsettingswitholdt)\<[`Switch`](README.md#switch)\> |
+| Property | Type | Defined in |
+| ------ | ------ | ------ |
+| `SlpAntilegionellaOnOff?` | [`BasePostSettingsWithOld`](README.md#basepostsettingswitholdt)\<[`Switch`](README.md#switch)\> | [src/types.ts:103](https://github.com/OlivierZal/ariston-api/blob/ed50de0056d7782b2f5a16a582ab4c5ee8311035/src/types.ts#L103) |
+| `SlpMaxSetpointTemperature?` | [`BasePostSettings`](README.md#basepostsettingst)\<`number`\> | [src/types.ts:104](https://github.com/OlivierZal/ariston-api/blob/ed50de0056d7782b2f5a16a582ab4c5ee8311035/src/types.ts#L104) |
+| `SlpMinSetpointTemperature?` | [`BasePostSettings`](README.md#basepostsettingst)\<`number`\> | [src/types.ts:105](https://github.com/OlivierZal/ariston-api/blob/ed50de0056d7782b2f5a16a582ab4c5ee8311035/src/types.ts#L105) |
+| `SlpPreHeatingOnOff?` | [`BasePostSettingsWithOld`](README.md#basepostsettingswitholdt)\<[`Switch`](README.md#switch)\> | [src/types.ts:106](https://github.com/OlivierZal/ariston-api/blob/ed50de0056d7782b2f5a16a582ab4c5ee8311035/src/types.ts#L106) |
 
 ***
 
@@ -544,11 +544,11 @@ setSettings(id: string, settings: PostSettings): Promise<{
 
 #### Properties
 
-| Property | Modifier | Type |
-| :------ | :------ | :------ |
-| `data` | `readonly` | \{ `asKwhRaw`: \{ `histogramData`: readonly [`HistogramData`](README.md#histogramdata)[]; \}; \} |
-| `data.asKwhRaw` | `public` | \{ `histogramData`: readonly [`HistogramData`](README.md#histogramdata)[]; \} |
-| `data.asKwhRaw.histogramData` | `public` | readonly [`HistogramData`](README.md#histogramdata)[] |
+| Property | Modifier | Type | Defined in |
+| ------ | ------ | ------ | ------ |
+| `data` | `readonly` | \{ `asKwhRaw`: \{ `histogramData`: readonly [`HistogramData`](README.md#histogramdata)[]; \}; \} | [src/types.ts:128](https://github.com/OlivierZal/ariston-api/blob/ed50de0056d7782b2f5a16a582ab4c5ee8311035/src/types.ts#L128) |
+| `data.asKwhRaw` | `readonly` | \{ `histogramData`: readonly [`HistogramData`](README.md#histogramdata)[]; \} | [src/types.ts:129](https://github.com/OlivierZal/ariston-api/blob/ed50de0056d7782b2f5a16a582ab4c5ee8311035/src/types.ts#L129) |
+| `data.asKwhRaw.histogramData` | `readonly` | readonly [`HistogramData`](README.md#histogramdata)[] | [src/types.ts:129](https://github.com/OlivierZal/ariston-api/blob/ed50de0056d7782b2f5a16a582ab4c5ee8311035/src/types.ts#L129) |
 
 ***
 
@@ -556,10 +556,10 @@ setSettings(id: string, settings: PostSettings): Promise<{
 
 #### Properties
 
-| Property | Type |
-| :------ | :------ |
-| `get` | \<`K`\>(`key`: `K`) => `undefined` \| `null` \| [`APISettings`](README.md#apisettings)\[`K`\] |
-| `set` | \<`K`\>(`key`: `K`, `value`: [`APISettings`](README.md#apisettings)\[`K`\]) => `void` |
+| Property | Type | Defined in |
+| ------ | ------ | ------ |
+| `get` | \<`K`\>(`key`: `K`) => `undefined` \| `null` \| [`APISettings`](README.md#apisettings)\[`K`\] | [src/lib/AristonAPI.ts:39](https://github.com/OlivierZal/ariston-api/blob/ed50de0056d7782b2f5a16a582ab4c5ee8311035/src/lib/AristonAPI.ts#L39) |
+| `set` | \<`K`\>(`key`: `K`, `value`: [`APISettings`](README.md#apisettings)\[`K`\]) => `void` | [src/lib/AristonAPI.ts:42](https://github.com/OlivierZal/ariston-api/blob/ed50de0056d7782b2f5a16a582ab4c5ee8311035/src/lib/AristonAPI.ts#L42) |
 
 ***
 
@@ -567,10 +567,10 @@ setSettings(id: string, settings: PostSettings): Promise<{
 
 #### Properties
 
-| Property | Modifier | Type |
-| :------ | :------ | :------ |
-| `message` | `readonly` | `null` |
-| `ok` | `readonly` | `true` |
+| Property | Modifier | Type | Defined in |
+| ------ | ------ | ------ | ------ |
+| `message` | `readonly` | `null` | [src/types.ts:24](https://github.com/OlivierZal/ariston-api/blob/ed50de0056d7782b2f5a16a582ab4c5ee8311035/src/types.ts#L24) |
+| `ok` | `readonly` | `true` | [src/types.ts:25](https://github.com/OlivierZal/ariston-api/blob/ed50de0056d7782b2f5a16a582ab4c5ee8311035/src/types.ts#L25) |
 
 ***
 
@@ -582,15 +582,15 @@ setSettings(id: string, settings: PostSettings): Promise<{
 
 #### Properties
 
-| Property | Type | Inherited from |
-| :------ | :------ | :------ |
-| `boostOn?` | `boolean` | [`BasePlantData`](README.md#baseplantdata).`boostOn` |
-| `comfortTemp?` | `number` | [`BasePlantData`](README.md#baseplantdata).`comfortTemp` |
-| `holidayUntil?` | `null` \| `string` | [`BasePlantData`](README.md#baseplantdata).`holidayUntil` |
-| `hpState?` | `number` | [`BasePlantData`](README.md#baseplantdata).`hpState` |
-| `on?` | `boolean` | [`BasePlantData`](README.md#baseplantdata).`on` |
-| `opMode?` | [`OperationMode`](README.md#operationmode) | [`BasePlantData`](README.md#baseplantdata).`opMode` |
-| `plantMode?` | [`Mode`](README.md#mode) | - |
+| Property | Type | Inherited from | Defined in |
+| ------ | ------ | ------ | ------ |
+| `boostOn?` | `boolean` | [`BasePlantData`](README.md#baseplantdata).`boostOn` | [src/types.ts:53](https://github.com/OlivierZal/ariston-api/blob/ed50de0056d7782b2f5a16a582ab4c5ee8311035/src/types.ts#L53) |
+| `comfortTemp?` | `number` | [`BasePlantData`](README.md#baseplantdata).`comfortTemp` | [src/types.ts:54](https://github.com/OlivierZal/ariston-api/blob/ed50de0056d7782b2f5a16a582ab4c5ee8311035/src/types.ts#L54) |
+| `holidayUntil?` | `null` \| `string` | [`BasePlantData`](README.md#baseplantdata).`holidayUntil` | [src/types.ts:55](https://github.com/OlivierZal/ariston-api/blob/ed50de0056d7782b2f5a16a582ab4c5ee8311035/src/types.ts#L55) |
+| `hpState?` | `number` | [`BasePlantData`](README.md#baseplantdata).`hpState` | [src/types.ts:56](https://github.com/OlivierZal/ariston-api/blob/ed50de0056d7782b2f5a16a582ab4c5ee8311035/src/types.ts#L56) |
+| `on?` | `boolean` | [`BasePlantData`](README.md#baseplantdata).`on` | [src/types.ts:57](https://github.com/OlivierZal/ariston-api/blob/ed50de0056d7782b2f5a16a582ab4c5ee8311035/src/types.ts#L57) |
+| `opMode?` | [`OperationMode`](README.md#operationmode) | [`BasePlantData`](README.md#baseplantdata).`opMode` | [src/types.ts:58](https://github.com/OlivierZal/ariston-api/blob/ed50de0056d7782b2f5a16a582ab4c5ee8311035/src/types.ts#L58) |
+| `plantMode?` | [`Mode`](README.md#mode) | - | [src/types.ts:66](https://github.com/OlivierZal/ariston-api/blob/ed50de0056d7782b2f5a16a582ab4c5ee8311035/src/types.ts#L66) |
 
 ## Type Aliases
 
@@ -605,15 +605,15 @@ type GetData<T>: Failure | Success & {
 };
 ```
 
-#### Type parameters
+#### Type Parameters
 
-| Type parameter |
-| :------ |
+| Type Parameter |
+| ------ |
 | `T` *extends* [`PlantSettings`](README.md#plantsettings) \| `null` |
 
-#### Source
+#### Defined in
 
-[src/types.ts:85](https://github.com/OlivierZal/ariston-api/blob/6b95adea94b34cf1e7dbf8822700ccb86521fec0/src/types.ts#L85)
+[src/types.ts:85](https://github.com/OlivierZal/ariston-api/blob/ed50de0056d7782b2f5a16a582ab4c5ee8311035/src/types.ts#L85)
 
 ***
 
@@ -623,6 +623,6 @@ type GetData<T>: Failure | Success & {
 type LoginData: Failure | Success;
 ```
 
-#### Source
+#### Defined in
 
-[src/types.ts:44](https://github.com/OlivierZal/ariston-api/blob/6b95adea94b34cf1e7dbf8822700ccb86521fec0/src/types.ts#L44)
+[src/types.ts:44](https://github.com/OlivierZal/ariston-api/blob/ed50de0056d7782b2f5a16a582ab4c5ee8311035/src/types.ts#L44)
