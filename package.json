@@ -58,7 +58,7 @@
     "typedoc": "^0.28.0",
     "typedoc-plugin-markdown": "^4.5.0",
     "typescript": "^5.5.3",
-    "typescript-eslint": "^8.23.0"
+    "typescript-eslint": "^8.34.1"
   },
   "dependencies": {
     "axios": "^1.8.3",
