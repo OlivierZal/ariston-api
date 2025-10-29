@@ -61,7 +61,7 @@
     "typescript-eslint": "^8.46.2"
   },
   "dependencies": {
-    "axios": "^1.13.0",
+    "axios": "^1.13.1",
     "axios-cookiejar-support": "^6.0.4",
     "luxon": "^3.7.2",
     "source-map-support": "^0.5.21",
